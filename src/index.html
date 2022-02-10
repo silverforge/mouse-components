@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Stencil Component Starter</title>
+
+    <script type="module" src="/build/mouse-components.esm.js"></script>
+    <script nomodule src="/build/mouse-components.js"></script>
+
+    <style>
+      moco-input-text {
+        margin: 1rem 2rem;
+      }
+    </style>
+
+  </head>
+  <body>
+    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+
+    <div style="width: 40rem;">
+      <moco-input-text placeholder="john.doe@somewhere.com"></moco-input-text>
+      <moco-input-text label="name" placeholder="John Doe"></moco-input-text>
+      <moco-input-text label="preferred name" placeholder="Johnny" dark></moco-input-text>
+      <moco-input-text placeholder="9 Over the Rainbow" dark></moco-input-text>
+    </div>
+
+    <script>
+      const almaCompot = document.getElementById("alma");
+
+      setInterval(() => {
+        if (almaCompot) {
+          almaCompot.error = true;
+        }
+      }, 3000);
+
+    </script>
+  </body>
+</html>

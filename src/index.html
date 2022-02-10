@@ -21,18 +21,25 @@
     <div style="width: 40rem;">
       <moco-input-text placeholder="john.doe@somewhere.com"></moco-input-text>
       <moco-input-text label="name" placeholder="John Doe"></moco-input-text>
-      <moco-input-text label="preferred name" placeholder="Johnny" dark></moco-input-text>
+      <moco-input-text id="alma" label="preferred name" placeholder="Johnny" dark value="AlmaBarack"></moco-input-text>
       <moco-input-text placeholder="9 Over the Rainbow" dark></moco-input-text>
     </div>
 
     <script>
       const almaCompot = document.getElementById("alma");
+      almaCompot.addEventListener('inputchange', (e) => {
+        myFunction(e.detail);
+      });
 
       setInterval(() => {
         if (almaCompot) {
           almaCompot.error = true;
         }
       }, 3000);
+
+      const myFunction = (value) => {
+        console.log(value);
+      }
 
     </script>
   </body>

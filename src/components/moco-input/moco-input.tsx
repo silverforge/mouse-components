@@ -1,4 +1,4 @@
-import { h, Component, Prop } from "@stencil/core";
+import { h, Component, Prop, EventEmitter, Event } from "@stencil/core";
 
 @Component({
   tag: 'moco-input-text',
@@ -10,6 +10,18 @@ export class MocoInputText {
   @Prop() label: string;
   @Prop() dark: boolean;
   @Prop({ reflect: true, mutable: true }) error: boolean;
+  @Prop({ reflect: true, mutable: true }) value: string;
+
+  @Event({
+    eventName: 'inputchange',
+    composed: true,
+    bubbles: false
+  }) inputchange: EventEmitter<string>;
+
+  onInputChange(e: any) {
+    this.value = e.target.value;
+    this.inputchange.emit(e.target.value);
+  }
 
   render() {
     let inputClass = "moco-input-box";
@@ -24,8 +36,15 @@ export class MocoInputText {
     }
 
     return (
-      <div class={inputClass} data-label-text={this.label} data-dark={this.dark ? "true" : "false"}>
-        <input type="text" placeholder={this.placeholder} />
+      <div 
+          class={inputClass} 
+          data-label-text={this.label} 
+          data-dark={this.dark ? "true" : "false"}>
+        <input 
+            type="text" 
+            placeholder={this.placeholder} 
+            value={this.value} 
+            onInput={this.onInputChange.bind(this)} />
       </div>
     );
   }

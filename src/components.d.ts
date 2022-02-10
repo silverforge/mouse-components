@@ -11,6 +11,7 @@ export namespace Components {
         "error": boolean;
         "label": string;
         "placeholder": string;
+        "value": string;
     }
     interface MyComponent {
         /**
@@ -50,7 +51,9 @@ declare namespace LocalJSX {
         "dark"?: boolean;
         "error"?: boolean;
         "label"?: string;
+        "onInputchange"?: (event: CustomEvent<string>) => void;
         "placeholder"?: string;
+        "value"?: string;
     }
     interface MyComponent {
         /**

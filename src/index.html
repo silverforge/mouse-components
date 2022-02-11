@@ -9,8 +9,6 @@
     <script nomodule src="/build/mouse-components.js"></script>
   </head>
   <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
-
     <div style="width: 40rem; display: flex; flex-direction: column; gap: 1rem; padding: 1rem 2rem;">
       <moco-input-text placeholder="john.doe@somewhere.com"></moco-input-text>
       <moco-input-text label="name" placeholder="John Doe"></moco-input-text>
@@ -24,6 +22,8 @@
       <moco-button id="okay-button-disabled" caption="okay" dark disabled></moco-button>
       <moco-button id="cancel-button-disabled" caption="cancel" disabled></moco-button>
     </div>
+
+    <moco-loader />
 
     <script>
       const almaCompot = document.getElementById('alma');

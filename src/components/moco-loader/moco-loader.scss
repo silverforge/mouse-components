@@ -1,0 +1,151 @@
+@import '../../scss/defaults';
+@import '../../scss/variables';
+@import '../../scss/shadows';
+
+$dot-size: 30px;
+$container-size: 20rem;
+$container-inner-size: 100%;
+$container-inner-inner-size: 15rem;
+$radius-big: -8rem;
+$radius-small: 6rem;
+
+:host {
+  box-sizing: border-box;
+}
+
+.container {
+  position: relative;
+  min-width: $container-size;
+  min-height: $container-size;
+  width: $container-size;
+  height: $container-size;
+  border-radius: $default-border-radius;
+  background-color: $color-background-light;
+  @include shadow-md;
+}
+
+.container-inner {
+  position: absolute;
+  width: $container-inner-size;
+  height: $container-inner-size;
+  background-color: transparent;
+  animation: rotate 24s linear infinite;
+}
+
+.container-inner-inner {
+  display: block;
+  position: absolute;
+
+  top: calc(($container-size / 2) - ($container-inner-inner-size / 2));
+  left: calc(($container-size / 2) - ($container-inner-inner-size / 2));
+
+  width: $container-inner-inner-size;
+  height: $container-inner-inner-size;
+  background-color: transparent;
+  animation: rotate-back 6s linear infinite;
+}
+
+.dot-base {
+  min-width: $dot-size;
+  min-height: $dot-size;
+  width: $dot-size;
+  height: $dot-size;
+  background-color: $color-background-dark;
+  border-radius: 50%;
+
+  position: absolute;
+  top: calc(($container-size / 2) - ($dot-size / 2));
+  left: calc(($container-size / 2) - ($dot-size / 2));
+}
+
+.dot01 {
+  @extend .dot-base;
+  transform: rotate(30deg) translateY($radius-big);
+}
+
+.dot02 {
+  @extend .dot-base;
+  transform: rotate(60deg) translateY($radius-big);
+}
+
+.dot03 {
+  @extend .dot-base;
+  transform: rotate(90deg) translateY($radius-big);
+}
+
+.dot04 {
+  @extend .dot-base;
+  transform: rotate(120deg) translateY($radius-big);
+}
+
+.dot05 {
+  @extend .dot-base;
+  transform: rotate(150deg) translateY($radius-big);
+}
+
+.dot06 {
+  @extend .dot-base;
+  transform: rotate(180deg) translateY($radius-big);
+}
+
+.dot07 {
+  @extend .dot-base;
+  transform: rotate(210deg) translateY($radius-big);
+}
+
+.dot08 {
+  @extend .dot-base;
+  transform: rotate(240deg) translateY($radius-big);
+}
+
+.dot09 {
+  @extend .dot-base;
+  transform: rotate(270deg) translateY($radius-big);
+}
+
+.dot10 {
+  @extend .dot-base;
+  transform: rotate(300deg) translateY($radius-big);
+}
+
+.dot11 {
+  @extend .dot-base;
+  transform: rotate(330deg) translateY($radius-big);
+}
+
+.dot12 {
+  @extend .dot-base;
+  transform: rotate(0) translateY($radius-big);
+}
+
+.dot-small {
+  min-width: $dot-size / 2;
+  min-height: $dot-size / 2;
+  width: $dot-size / 2;
+  height: $dot-size / 2;
+  background-color: $color-background-dark-focused;
+  border-radius: 50%;
+
+  position: absolute;
+  top: calc(($container-inner-inner-size / 2) - ($dot-size / 4));
+  left: calc(($container-inner-inner-size / 2) - ($dot-size / 4));
+  transform: translateY($radius-small);
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-back {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

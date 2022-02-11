@@ -42,19 +42,7 @@ export namespace Components {
          */
         "value": string;
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface MocoLoader {
     }
 }
 declare global {
@@ -70,16 +58,16 @@ declare global {
         prototype: HTMLMocoInputTextElement;
         new (): HTMLMocoInputTextElement;
     };
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLMocoLoaderElement extends Components.MocoLoader, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLMocoLoaderElement: {
+        prototype: HTMLMocoLoaderElement;
+        new (): HTMLMocoLoaderElement;
     };
     interface HTMLElementTagNameMap {
         "moco-button": HTMLMocoButtonElement;
         "moco-input-text": HTMLMocoInputTextElement;
-        "my-component": HTMLMyComponentElement;
+        "moco-loader": HTMLMocoLoaderElement;
     }
 }
 declare namespace LocalJSX {
@@ -127,24 +115,12 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface MocoLoader {
     }
     interface IntrinsicElements {
         "moco-button": MocoButton;
         "moco-input-text": MocoInputText;
-        "my-component": MyComponent;
+        "moco-loader": MocoLoader;
     }
 }
 export { LocalJSX as JSX };
@@ -153,7 +129,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "moco-button": LocalJSX.MocoButton & JSXBase.HTMLAttributes<HTMLMocoButtonElement>;
             "moco-input-text": LocalJSX.MocoInputText & JSXBase.HTMLAttributes<HTMLMocoInputTextElement>;
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "moco-loader": LocalJSX.MocoLoader & JSXBase.HTMLAttributes<HTMLMocoLoaderElement>;
         }
     }
 }

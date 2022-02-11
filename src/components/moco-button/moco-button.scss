@@ -2,10 +2,6 @@
 @import '../../scss/variables';
 @import '../../scss/shadows';
 
-:host {
-  display: block;
-}
-
 .moco-button {
   border: none;
   border-radius: $default-border-radius;

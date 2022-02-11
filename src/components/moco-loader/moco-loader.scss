@@ -1,16 +1,26 @@
+@use "sass:math";
 @import '../../scss/defaults';
 @import '../../scss/variables';
 @import '../../scss/shadows';
 
-$dot-size: 30px;
-$container-size: 20rem;
+$dot-size: 2em;
+$container-size: 20em;
 $container-inner-size: 100%;
-$container-inner-inner-size: 15rem;
-$radius-big: -8rem;
-$radius-small: 6rem;
+$container-inner-small-size: 15em;
+$radius-big: -8em;
+$radius-small: -6em;
 
-:host {
-  box-sizing: border-box;
+@mixin childrenToCircle($childCount) {
+  $degree: math.div(360, $childCount);
+
+  & > * {
+    @for $i from 1 to $childCount + 1 {
+      &:nth-child(#{$i}) {
+        @extend .dot-base;
+        transform: rotate(($i * $degree) + 0deg) translateY($radius-big);
+      }
+    }
+  }
 }
 
 .container {
@@ -22,6 +32,13 @@ $radius-small: 6rem;
   border-radius: $default-border-radius;
   background-color: $color-background-light;
   @include shadow-md;
+
+  transition: all .3s;
+  transition-delay: 2s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 .container-inner {
@@ -30,17 +47,19 @@ $radius-small: 6rem;
   height: $container-inner-size;
   background-color: transparent;
   animation: rotate 24s linear infinite;
+
+  @include childrenToCircle(12);
 }
 
-.container-inner-inner {
+.container-inner-small {
   display: block;
   position: absolute;
 
-  top: calc(($container-size / 2) - ($container-inner-inner-size / 2));
-  left: calc(($container-size / 2) - ($container-inner-inner-size / 2));
+  top: calc(math.div($container-size, 2) - math.div($container-inner-small-size, 2));
+  left: calc(math.div($container-size, 2) - math.div($container-inner-small-size, 2));
 
-  width: $container-inner-inner-size;
-  height: $container-inner-inner-size;
+  width: $container-inner-small-size;
+  height: $container-inner-small-size;
   background-color: transparent;
   animation: rotate-back 6s linear infinite;
 }
@@ -54,81 +73,21 @@ $radius-small: 6rem;
   border-radius: 50%;
 
   position: absolute;
-  top: calc(($container-size / 2) - ($dot-size / 2));
-  left: calc(($container-size / 2) - ($dot-size / 2));
-}
-
-.dot01 {
-  @extend .dot-base;
-  transform: rotate(30deg) translateY($radius-big);
-}
-
-.dot02 {
-  @extend .dot-base;
-  transform: rotate(60deg) translateY($radius-big);
-}
-
-.dot03 {
-  @extend .dot-base;
-  transform: rotate(90deg) translateY($radius-big);
-}
-
-.dot04 {
-  @extend .dot-base;
-  transform: rotate(120deg) translateY($radius-big);
-}
-
-.dot05 {
-  @extend .dot-base;
-  transform: rotate(150deg) translateY($radius-big);
-}
-
-.dot06 {
-  @extend .dot-base;
-  transform: rotate(180deg) translateY($radius-big);
-}
-
-.dot07 {
-  @extend .dot-base;
-  transform: rotate(210deg) translateY($radius-big);
-}
-
-.dot08 {
-  @extend .dot-base;
-  transform: rotate(240deg) translateY($radius-big);
-}
-
-.dot09 {
-  @extend .dot-base;
-  transform: rotate(270deg) translateY($radius-big);
-}
-
-.dot10 {
-  @extend .dot-base;
-  transform: rotate(300deg) translateY($radius-big);
-}
-
-.dot11 {
-  @extend .dot-base;
-  transform: rotate(330deg) translateY($radius-big);
-}
-
-.dot12 {
-  @extend .dot-base;
-  transform: rotate(0) translateY($radius-big);
+  top: calc(math.div($container-size, 2) - math.div($dot-size, 2));
+  left: calc(math.div($container-size, 2) - math.div($dot-size, 2));
 }
 
 .dot-small {
-  min-width: $dot-size / 2;
-  min-height: $dot-size / 2;
-  width: $dot-size / 2;
-  height: $dot-size / 2;
+  min-width: math.div($dot-size, 2);
+  min-height: math.div($dot-size, 2);
+  width: math.div($dot-size, 2);
+  height: math.div($dot-size, 2);
   background-color: $color-background-dark-focused;
   border-radius: 50%;
 
   position: absolute;
-  top: calc(($container-inner-inner-size / 2) - ($dot-size / 4));
-  left: calc(($container-inner-inner-size / 2) - ($dot-size / 4));
+  top: calc(math.div($container-inner-small-size, 2) - math.div($dot-size, 4));
+  left: calc(math.div($container-inner-small-size, 2) - math.div($dot-size, 4));
   transform: translateY($radius-small);
 }
 

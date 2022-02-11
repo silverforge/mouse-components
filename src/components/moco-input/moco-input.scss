@@ -17,10 +17,6 @@
   }
 }
 
-:host {
-  display: block;
-}
-
 :host([error]) .moco-input-box,
 :host([error]) .moco-input-box-label {
   border: 1px solid $color-error;

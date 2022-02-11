@@ -1,15 +1,7 @@
 @use "sass:math";
-@import '../../scss/defaults';
-@import '../../scss/variables';
-@import '../../scss/shadows';
-
-$dot-size: 2em;
-$container-size: 20em;
-$container-inner-size: 100%;
-$container-inner-small-size: 15em;
-$radius-big: -7em;
-$radius-small: -5em;
-$border-radius: 1em;
+@import '../../../scss/defaults';
+@import '../../../scss/variables';
+@import '../../../scss/shadows';
 
 @mixin childrenToCircle($childCount, $isDark) {
   $degree: math.div(360, $childCount);

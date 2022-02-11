@@ -3,6 +3,7 @@ import { sass } from '@stencil/sass';
 
 export const config: Config = {
   namespace: 'mouse-components',
+  globalScript: './src/utils/global.ts',
   plugins: [
     sass()
   ],

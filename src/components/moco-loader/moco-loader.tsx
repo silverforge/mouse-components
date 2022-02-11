@@ -2,7 +2,13 @@ import { h, Component, Prop } from "@stencil/core";
 
 @Component({
   tag: 'moco-loader',
-  styleUrl: 'moco-loader.scss',
+  styleUrls: {
+    default: './styles/moco-loader-large.scss',
+    small: './styles/moco-loader-small.scss',
+    medium: './styles/moco-loader-medium.scss',
+    large: './styles/moco-loader-large.scss',
+    huge: './styles/moco-loader-huge.scss',
+  },
   shadow: true
 })
 export class MocoLoader {

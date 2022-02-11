@@ -6,6 +6,11 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface MocoButton {
+        "caption": string;
+        "dark": boolean;
+        "disabled": boolean;
+    }
     interface MocoInputText {
         "dark": boolean;
         "error": boolean;
@@ -29,6 +34,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLMocoButtonElement extends Components.MocoButton, HTMLStencilElement {
+    }
+    var HTMLMocoButtonElement: {
+        prototype: HTMLMocoButtonElement;
+        new (): HTMLMocoButtonElement;
+    };
     interface HTMLMocoInputTextElement extends Components.MocoInputText, HTMLStencilElement {
     }
     var HTMLMocoInputTextElement: {
@@ -42,11 +53,18 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "moco-button": HTMLMocoButtonElement;
         "moco-input-text": HTMLMocoInputTextElement;
         "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
+    interface MocoButton {
+        "caption"?: string;
+        "dark"?: boolean;
+        "disabled"?: boolean;
+        "onClicked"?: (event: CustomEvent<string>) => void;
+    }
     interface MocoInputText {
         "dark"?: boolean;
         "error"?: boolean;
@@ -70,6 +88,7 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface IntrinsicElements {
+        "moco-button": MocoButton;
         "moco-input-text": MocoInputText;
         "my-component": MyComponent;
     }
@@ -78,6 +97,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "moco-button": LocalJSX.MocoButton & JSXBase.HTMLAttributes<HTMLMocoButtonElement>;
             "moco-input-text": LocalJSX.MocoInputText & JSXBase.HTMLAttributes<HTMLMocoInputTextElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }

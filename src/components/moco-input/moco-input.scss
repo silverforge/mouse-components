@@ -3,7 +3,7 @@
 @import '../../scss/shadows';
 
 @mixin inputStyle($isDark) {
-  border-radius: 0.5rem;
+  border-radius: $default-border-radius;
   transition: all 0.3s ease-in;
 
   @if ($isDark) == dark {

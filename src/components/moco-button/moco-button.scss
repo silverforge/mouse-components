@@ -1,0 +1,50 @@
+@import '../../scss/defaults';
+@import '../../scss/variables';
+@import '../../scss/shadows';
+
+:host {
+  display: block;
+}
+
+.moco-button {
+  border: none;
+  border-radius: $default-border-radius;
+  padding: 0.75rem 1.25rem;
+  background-color: $color-background-light;
+  color: $color-text-light;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  outline: none;
+
+  &:hover:enabled {
+    @include shadow-md;
+    background-color: $color-background-light-focused;
+  }
+
+  &:active:enabled {
+    @include shadow-sm;
+  }
+
+  &:disabled {
+    background-color: $color-background-disabled;
+    color: $color-text-disabled;
+  }
+
+  &-dark {
+    @extend .moco-button;
+    background-color: $color-background-dark;
+    color: $color-text-dark;
+
+    &:hover:enabled {
+      @include shadow-md;
+      background-color: $color-background-dark-focused;
+    }
+
+    &:active:enabled {
+      @include shadow-sm;
+    }
+  }
+}

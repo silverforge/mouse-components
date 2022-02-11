@@ -46,7 +46,7 @@
   width: $container-inner-size;
   height: $container-inner-size;
   background-color: transparent;
-  animation: rotate 24s linear infinite;
+  animation: rotate 12s linear infinite;
 
   @include childrenToCircle(12, light);
 
@@ -66,7 +66,7 @@
   width: $container-inner-small-size;
   height: $container-inner-small-size;
   background-color: transparent;
-  animation: rotate-back 6s linear infinite;
+  animation: rotate-back 3s linear infinite;
 
   &-dark {
     @extend .container-inner-small;

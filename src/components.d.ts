@@ -7,15 +7,39 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface MocoButton {
+        /**
+          * button text
+         */
         "caption": string;
+        /**
+          * style of the button (dark) or not
+         */
         "dark": boolean;
+        /**
+          * button disabled or not
+         */
         "disabled": boolean;
     }
     interface MocoInputText {
+        /**
+          * style of the button (dark) or not
+         */
         "dark": boolean;
+        /**
+          * is error or not
+         */
         "error": boolean;
+        /**
+          * field label text
+         */
         "label": string;
+        /**
+          * placeholder text
+         */
         "placeholder": string;
+        /**
+          * value of the input field,  updated on input change
+         */
         "value": string;
     }
     interface MyComponent {
@@ -60,17 +84,47 @@ declare global {
 }
 declare namespace LocalJSX {
     interface MocoButton {
+        /**
+          * button text
+         */
         "caption"?: string;
+        /**
+          * style of the button (dark) or not
+         */
         "dark"?: boolean;
+        /**
+          * button disabled or not
+         */
         "disabled"?: boolean;
+        /**
+          * event emitted on every button click, emitting the caption text of the button
+         */
         "onClicked"?: (event: CustomEvent<string>) => void;
     }
     interface MocoInputText {
+        /**
+          * style of the button (dark) or not
+         */
         "dark"?: boolean;
+        /**
+          * is error or not
+         */
         "error"?: boolean;
+        /**
+          * field label text
+         */
         "label"?: string;
+        /**
+          * emits the value of input plus updates the value of the component
+         */
         "onInputchange"?: (event: CustomEvent<string>) => void;
+        /**
+          * placeholder text
+         */
         "placeholder"?: string;
+        /**
+          * value of the input field,  updated on input change
+         */
         "value"?: string;
     }
     interface MyComponent {

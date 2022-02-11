@@ -7,17 +7,18 @@
 
 ## Properties
 
-| Property  | Attribute | Description     | Type      | Default     |
-| --------- | --------- | --------------- | --------- | ----------- |
-| `caption` | `caption` | button caption  | `string`  | `undefined` |
-| `dark`    | `dark`    | style           | `boolean` | `undefined` |
+| Property   | Attribute  | Description                       | Type      | Default     |
+| ---------- | ---------- | --------------------------------- | --------- | ----------- |
+| `caption`  | `caption`  | button text                       | `string`  | `undefined` |
+| `dark`     | `dark`     | style of the button (dark) or not | `boolean` | `undefined` |
+| `disabled` | `disabled` | button disabled or not            | `boolean` | `undefined` |
 
 
 ## Events
 
-| Event     | Description  | Type                  |
-| --------- | ------------ | --------------------- |
-| `clicked` | button click | `CustomEvent<string>` |
+| Event     | Description                                                                  | Type                  |
+| --------- | ---------------------------------------------------------------------------- | --------------------- |
+| `clicked` | event emitted on every button click, emitting the caption text of the button | `CustomEvent<string>` |
 
 
 ----------------------------------------------

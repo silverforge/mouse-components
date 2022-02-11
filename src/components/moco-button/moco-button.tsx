@@ -6,10 +6,17 @@ import { h, Component, Prop, Event, EventEmitter } from "@stencil/core";
   shadow: true
 })
 export class MocoButton {
+  /** button text */
   @Prop() caption: string;
+  /** style of the button (dark) or not */
   @Prop() dark: boolean;
+  /** button disabled or not  */
   @Prop() disabled: boolean;
 
+  /** 
+   * event emitted on every button click,
+   * emitting the caption text of the button
+   * */
   @Event({
     eventName: 'clicked',
     bubbles: false,

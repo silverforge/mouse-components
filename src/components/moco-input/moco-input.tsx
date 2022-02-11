@@ -6,12 +6,20 @@ import { h, Component, Prop, EventEmitter, Event } from "@stencil/core";
   shadow: true
 })
 export class MocoInputText {
+  /** placeholder text */
   @Prop() placeholder: string;
+  /** field label text */
   @Prop() label: string;
+  /** style of the button (dark) or not */
   @Prop() dark: boolean;
+  /** is error or not */
   @Prop({ reflect: true, mutable: true }) error: boolean;
+  /** 
+   * value of the input field, 
+   * updated on input change */
   @Prop({ reflect: true, mutable: true }) value: string;
 
+  /** emits the value of input plus updates the value of the component */
   @Event({
     eventName: 'inputchange',
     composed: true,

@@ -4,6 +4,7 @@ import { h, Component, Prop } from "@stencil/core";
   tag: 'moco-loader',
   styleUrls: {
     default: './styles/moco-loader-large.scss',
+    tiny: './styles/moco-loader-tiny.scss',
     small: './styles/moco-loader-small.scss',
     medium: './styles/moco-loader-medium.scss',
     large: './styles/moco-loader-large.scss',

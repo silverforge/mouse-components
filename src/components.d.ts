@@ -43,6 +43,10 @@ export namespace Components {
         "value": string;
     }
     interface MocoLoader {
+        /**
+          * style of the button (dark) or not
+         */
+        "dark": boolean;
     }
 }
 declare global {
@@ -116,6 +120,10 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface MocoLoader {
+        /**
+          * style of the button (dark) or not
+         */
+        "dark"?: boolean;
     }
     interface IntrinsicElements {
         "moco-button": MocoButton;

@@ -7,16 +7,21 @@ $dot-size: 2em;
 $container-size: 20em;
 $container-inner-size: 100%;
 $container-inner-small-size: 15em;
-$radius-big: -8em;
-$radius-small: -6em;
+$radius-big: -7em;
+$radius-small: -5em;
+$border-radius: 1em;
 
-@mixin childrenToCircle($childCount) {
+@mixin childrenToCircle($childCount, $isDark) {
   $degree: math.div(360, $childCount);
 
   & > * {
     @for $i from 1 to $childCount + 1 {
       &:nth-child(#{$i}) {
-        @extend .dot-base;
+        @if $isDark == dark {
+          @extend .dot-base-dark;
+        } @else {
+          @extend .dot-base;
+        }
         transform: rotate(($i * $degree) + 0deg) translateY($radius-big);
       }
     }
@@ -29,15 +34,20 @@ $radius-small: -6em;
   min-height: $container-size;
   width: $container-size;
   height: $container-size;
-  border-radius: $default-border-radius;
+  border-radius: $border-radius;
   background-color: $color-background-light;
   @include shadow-md;
 
   transition: all .3s;
-  transition-delay: 2s;
 
   &:hover {
+    transition-delay: 2s;
     transform: scale(1.05);
+  }
+
+  &-dark {
+    @extend .container;
+    background-color: $color-background-dark;
   }
 }
 
@@ -48,7 +58,12 @@ $radius-small: -6em;
   background-color: transparent;
   animation: rotate 24s linear infinite;
 
-  @include childrenToCircle(12);
+  @include childrenToCircle(12, light);
+
+  &-dark {
+    @extend .container-inner;
+    @include childrenToCircle(12, dark);
+  }
 }
 
 .container-inner-small {
@@ -62,6 +77,10 @@ $radius-small: -6em;
   height: $container-inner-small-size;
   background-color: transparent;
   animation: rotate-back 6s linear infinite;
+
+  &-dark {
+    @extend .container-inner-small;
+  }
 }
 
 .dot-base {
@@ -75,6 +94,11 @@ $radius-small: -6em;
   position: absolute;
   top: calc(math.div($container-size, 2) - math.div($dot-size, 2));
   left: calc(math.div($container-size, 2) - math.div($dot-size, 2));
+
+  &-dark {
+    @extend .dot-base;
+    background-color: $color-background-light;
+  }
 }
 
 .dot-small {
@@ -89,6 +113,11 @@ $radius-small: -6em;
   top: calc(math.div($container-inner-small-size, 2) - math.div($dot-size, 4));
   left: calc(math.div($container-inner-small-size, 2) - math.div($dot-size, 4));
   transform: translateY($radius-small);
+
+  &-dark {
+    @extend .dot-small;
+    background-color: $color-background-light-focused;
+  }
 }
 
 @keyframes rotate {

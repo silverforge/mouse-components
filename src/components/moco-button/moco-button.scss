@@ -15,6 +15,7 @@
   transition: all 0.3s ease-out;
   outline: none;
 
+  &:focus,
   &:hover:enabled {
     @include shadow-md;
     background-color: $color-background-light-focused;
@@ -34,6 +35,7 @@
     background-color: $color-background-dark;
     color: $color-text-dark;
 
+    &:focus,
     &:hover:enabled {
       @include shadow-md;
       background-color: $color-background-dark-focused;

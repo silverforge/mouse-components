@@ -1,0 +1,83 @@
+@import '../../scss/defaults';
+@import '../../scss/variables';
+@import '../../scss/shadows';
+
+@mixin disabled-knob {
+  color: $color-text-disabled;
+  background-color: $mui-grey-500;
+  border: 1px solid $mui-grey-500;
+}
+
+.container {
+  min-width: 3rem;
+  min-height: 1.5rem;
+  width: 3rem;
+  height: 1.5rem;
+
+  border: 1px solid $color-border-light;
+  border-radius: $default-border-radius;
+  background-color: $color-background-light;
+
+  position: relative;
+
+  transition: all 0.3s ease-out;
+  outline: none;
+  cursor: pointer;
+
+  &:focus {
+    border: 1px solid $color-border-light-focused;
+    @include shadow-sm;
+  }
+
+  &-disabled {
+    @extend .container;
+    background-color: $color-background-disabled;
+    cursor: default;
+
+    &:focus {
+      border: 1px solid $color-border-light;
+      box-shadow: none;
+    }
+  }
+}
+
+.knob {
+  min-width: 1.25rem;
+  min-height: 1rem;
+  width: 1.25rem;
+  height: 1rem;
+
+  color: $color-text-dark;
+  background-color: $mui-grey-500;
+  border: 1px solid $mui-grey-500;
+  border-radius: $default-border-radius;
+
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: 0.2rem;
+  left: 0.2rem;
+
+  transition: all 0.3s ease-out;
+
+  &-disabled {
+    @extend .knob;
+    @include disabled-knob;
+  }
+
+  &-set {
+    @extend .knob;
+    left: 1.4rem;
+    border: 1px solid $color-background-dark;
+    background-color: $color-background-dark;
+
+    &-disabled {
+      @extend .knob-set;
+      @include disabled-knob;
+    }
+  }
+}

@@ -15,17 +15,24 @@ import { h, Component, Prop } from "@stencil/core";
 export class MocoLoader {
   /** style of the button (dark) or not */
   @Prop() dark: boolean;
+  /** transparent background */
+  @Prop() transparent: boolean;
 
   render() {
     let containerClass = 'container';
     let containerInnerClass = 'container-inner';
     let containerInnerSmallClass = 'container-inner-small';
     let dotSmallClass = 'dot-small';
+
     if (this.dark) {
       containerClass = 'container-dark';
       containerInnerClass = 'container-inner-dark';
       containerInnerSmallClass = 'container-inner-small-dark';
       dotSmallClass = 'dot-small-dark';
+    }
+
+    if (this.transparent) {
+      containerClass = 'container-transparent';
     }
 
     return (

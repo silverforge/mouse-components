@@ -39,6 +39,11 @@
     @extend .container;
     background-color: $color-background-dark;
   }
+
+  &-transparent {
+    @extend .container;
+    background-color: transparent;
+  }
 }
 
 .container-inner {

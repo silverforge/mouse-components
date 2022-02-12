@@ -47,6 +47,10 @@ export namespace Components {
           * style of the button (dark) or not
          */
         "dark": boolean;
+        /**
+          * transparent background
+         */
+        "transparent": boolean;
     }
 }
 declare global {
@@ -124,6 +128,10 @@ declare namespace LocalJSX {
           * style of the button (dark) or not
          */
         "dark"?: boolean;
+        /**
+          * transparent background
+         */
+        "transparent"?: boolean;
     }
     interface IntrinsicElements {
         "moco-button": MocoButton;

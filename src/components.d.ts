@@ -58,6 +58,10 @@ export namespace Components {
          */
         "checked": boolean;
         /**
+          * style of the button (dark) or not
+         */
+        "dark": boolean;
+        /**
           * switch disabled or not
          */
         "disabled": boolean;
@@ -156,9 +160,17 @@ declare namespace LocalJSX {
          */
         "checked"?: boolean;
         /**
+          * style of the button (dark) or not
+         */
+        "dark"?: boolean;
+        /**
           * switch disabled or not
          */
         "disabled"?: boolean;
+        /**
+          * emits the state of switch (checked: true or false)
+         */
+        "onSwitched"?: (event: CustomEvent<boolean>) => void;
     }
     interface IntrinsicElements {
         "moco-button": MocoButton;

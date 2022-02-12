@@ -29,6 +29,17 @@
     @include shadow-sm;
   }
 
+  &-dark {
+    @extend .container;
+    border: 1px solid $color-border-dark;
+    background-color: $color-background-dark;
+
+    &:focus {
+      border: 1px solid $color-border-dark-focused;
+      @include shadow-sm;
+    }
+  }
+
   &-disabled {
     @extend .container;
     background-color: $color-background-disabled;
@@ -64,6 +75,13 @@
 
   transition: all 0.3s ease-out;
 
+  &-dark {
+    @extend .knob;
+    color: $color-text-light;
+    background-color: $mui-grey-300;
+    border: 1px solid $mui-grey-300;  
+  }
+
   &-disabled {
     @extend .knob;
     @include disabled-knob;
@@ -75,6 +93,13 @@
     border: 1px solid $color-background-dark;
     background-color: $color-background-dark;
 
+    &-dark {
+      @extend .knob-set;
+      color: $color-text-light;
+      background-color: $color-background-light;
+      border: 1px solid $color-background-light;
+    }
+  
     &-disabled {
       @extend .knob-set;
       @include disabled-knob;

@@ -1,4 +1,4 @@
-import { h, Component, State, Prop } from "@stencil/core";
+import { h, Component, State, Prop, Event, EventEmitter } from "@stencil/core";
 
 @Component({
   tag: 'moco-switch',
@@ -9,21 +9,34 @@ export class MocoSwitch {
   @State() isChecked: boolean = false;
   /** switch disabled or not  */
   @Prop() disabled: boolean;
+  /** style of the button (dark) or not */
+  @Prop() dark: boolean;
   /** checked or not */
   @Prop({ reflect: true, mutable: true }) checked: boolean;
+  /** emits the state of switch (checked: true or false) */
+  @Event({
+    eventName: 'switched',
+    bubbles: false,
+    composed: true
+  }) switched: EventEmitter<boolean>;
 
   onContainerClick() {
     if (!this.disabled) {
       this.isChecked = !this.isChecked;
       this.checked = this.isChecked;
+      this.switched.emit(this.isChecked);
     }
   }
 
   render() {
     let knobClass = (this.isChecked) ? 'knob-set' : 'knob';
-    const containerClass = (this.disabled) ? 'container-disabled' : 'container';
+    let containerClass = 'container';
     if (this.disabled) {
       knobClass = knobClass + '-disabled';
+      containerClass = containerClass + '-disabled';
+    } else if (this.dark) {
+      containerClass = 'container-dark';
+      knobClass = knobClass + '-dark';
     }
 
     return (

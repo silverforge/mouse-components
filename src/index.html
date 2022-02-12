@@ -24,8 +24,9 @@
     </div>
 
     <div style="display: flex; gap: 1rem; padding: 1rem 2rem;">
-      <moco-switch></moco-switch>
-      <moco-switch disabled></moco-switch>
+      <moco-switch id="dark-switch" dark></moco-switch>
+      <moco-switch id="light-switch"></moco-switch>
+      <moco-switch id="disabled-switch" disabled></moco-switch>
     </div>
 
     <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: center; margin: 1rem;">
@@ -38,6 +39,8 @@
       <moco-loader mode="large"></moco-loader>
       <moco-loader mode="huge" dark></moco-loader>
     </div>
+
+
 
     <script>
       const almaCompot = document.getElementById('alma');
@@ -72,6 +75,15 @@
       cancelButtonDisabled.addEventListener('clicked', (e) => {
         myFunction(e.detail);
       });
+
+
+      const darkSwitch = document.getElementById("dark-switch");
+      const lightSwitch = document.getElementById("light-switch");
+      const disabledSwitch = document.getElementById("disabled-switch");
+      darkSwitch.addEventListener('switched', (e) => console.log(e.detail));
+      lightSwitch.addEventListener('switched', (e) => console.log(e.detail));
+      disabledSwitch.addEventListener('switched', (e) => console.log(e.detail));
+
     </script>
   </body>
 </html>

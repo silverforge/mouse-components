@@ -1,0 +1,14 @@
+@import '../../scss/defaults';
+@import '../../scss/variables';
+@import '../../scss/shadows';
+
+.option {
+  padding: .75rem;
+
+  transition: all .3s ease-out;
+
+  &:hover {
+    background-color: $color-background-dark;
+    color: $color-text-dark;
+  }
+}

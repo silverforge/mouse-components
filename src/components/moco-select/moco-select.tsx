@@ -1,4 +1,4 @@
-import { h, Component, State, EventEmitter, Event } from "@stencil/core";
+import { h, Component, State, EventEmitter, Event, Listen } from "@stencil/core";
 
 const menuUp = (
   <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24" viewBox="0 0 24 24">
@@ -25,6 +25,11 @@ export class MocoSelect {
     bubbles: false,
     composed: true
   }) opened: EventEmitter<boolean>;
+
+  @Listen('mocoOptionSelected')
+  optionSelected(event: CustomEvent<string>) {
+    console.log(event.detail);
+  }
 
   connectedCallback() {
     console.log("connected");

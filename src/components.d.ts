@@ -54,6 +54,9 @@ export namespace Components {
     }
     interface MocoSelect {
     }
+    interface MocoSelectOption {
+        "value": string;
+    }
     interface MocoSwitch {
         /**
           * checked or not
@@ -94,6 +97,12 @@ declare global {
         prototype: HTMLMocoSelectElement;
         new (): HTMLMocoSelectElement;
     };
+    interface HTMLMocoSelectOptionElement extends Components.MocoSelectOption, HTMLStencilElement {
+    }
+    var HTMLMocoSelectOptionElement: {
+        prototype: HTMLMocoSelectOptionElement;
+        new (): HTMLMocoSelectOptionElement;
+    };
     interface HTMLMocoSwitchElement extends Components.MocoSwitch, HTMLStencilElement {
     }
     var HTMLMocoSwitchElement: {
@@ -105,6 +114,7 @@ declare global {
         "moco-input-text": HTMLMocoInputTextElement;
         "moco-loader": HTMLMocoLoaderElement;
         "moco-select": HTMLMocoSelectElement;
+        "moco-select-option": HTMLMocoSelectOptionElement;
         "moco-switch": HTMLMocoSwitchElement;
     }
 }
@@ -166,6 +176,10 @@ declare namespace LocalJSX {
     interface MocoSelect {
         "onOpened"?: (event: CustomEvent<boolean>) => void;
     }
+    interface MocoSelectOption {
+        "onMocoOptionSelected"?: (event: CustomEvent<string>) => void;
+        "value"?: string;
+    }
     interface MocoSwitch {
         /**
           * checked or not
@@ -189,6 +203,7 @@ declare namespace LocalJSX {
         "moco-input-text": MocoInputText;
         "moco-loader": MocoLoader;
         "moco-select": MocoSelect;
+        "moco-select-option": MocoSelectOption;
         "moco-switch": MocoSwitch;
     }
 }
@@ -200,6 +215,7 @@ declare module "@stencil/core" {
             "moco-input-text": LocalJSX.MocoInputText & JSXBase.HTMLAttributes<HTMLMocoInputTextElement>;
             "moco-loader": LocalJSX.MocoLoader & JSXBase.HTMLAttributes<HTMLMocoLoaderElement>;
             "moco-select": LocalJSX.MocoSelect & JSXBase.HTMLAttributes<HTMLMocoSelectElement>;
+            "moco-select-option": LocalJSX.MocoSelectOption & JSXBase.HTMLAttributes<HTMLMocoSelectOptionElement>;
             "moco-switch": LocalJSX.MocoSwitch & JSXBase.HTMLAttributes<HTMLMocoSwitchElement>;
         }
     }

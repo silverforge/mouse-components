@@ -29,6 +29,47 @@
       <moco-switch id="disabled-switch" disabled checked></moco-switch>
     </div>
 
+    <div style="width: 40rem; display: flex; flex-direction: column; gap: 1rem; padding: 1rem 2rem;">
+      <moco-select id="light-select">
+        <span>alma</span>
+        <span>barack</span>
+        <span>citrom</span>
+        <span>alma</span>
+        <span>barack</span>
+        <span>citrom</span>
+        <span>alma</span>
+        <span>barack</span>
+        <span>citrom</span>
+        <span>alma</span>
+        <span>barack</span>
+        <span>citrom</span>
+        <span>alma</span>
+        <span>barack</span>
+        <span>citrom</span>
+        <span>alma</span>
+        <span>barack</span>
+        <span>citrom</span>
+        <span>alma</span>
+        <span>barack</span>
+        <span>citrom</span>
+        <span>alma</span>
+        <span>barack</span>
+        <span>citrom</span>
+        <span>alma</span>
+        <span>barack</span>
+        <span>citrom</span>
+        <span>alma</span>
+        <span>barack</span>
+        <span>citrom</span>
+        <span>alma</span>
+        <span>barack</span>
+        <span>citrom</span>
+        <span>alma</span>
+        <span>barack</span>
+        <span>citrom</span>
+      </moco-select>
+    </div>
+
     <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: center; margin: 1rem;">
       <moco-loader mode="tiny" dark transparent></moco-loader>
       <moco-loader mode="tiny" transparent></moco-loader>
@@ -83,6 +124,12 @@
       darkSwitch.addEventListener('switched', (e) => console.log(e.detail));
       lightSwitch.addEventListener('switched', (e) => console.log(e.detail));
       disabledSwitch.addEventListener('switched', (e) => console.log(e.detail));
+
+
+      const lightSelect = document.getElementById('light-select');
+      lightSelect.addEventListener('opened', (e) => {
+        console.log(e.detail);
+      });
 
     </script>
   </body>

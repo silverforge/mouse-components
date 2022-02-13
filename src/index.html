@@ -9,27 +9,27 @@
     <script nomodule src="/build/mouse-components.js"></script>
   </head>
   <body>
-    <div style="width: 40rem; display: flex; flex-direction: column; gap: 1rem; padding: 1rem 2rem;">
+    <div style="width: 40rem; display: flex; flex-direction: column; gap: 1rem; padding: 1rem 2rem">
       <moco-input-text placeholder="john.doe@somewhere.com"></moco-input-text>
       <moco-input-text label="name" placeholder="John Doe"></moco-input-text>
       <moco-input-text id="alma" label="preferred name" placeholder="Johnny" dark value="AlmaBarack"></moco-input-text>
       <moco-input-text placeholder="9 Over the Rainbow" dark></moco-input-text>
     </div>
 
-    <div style="display: flex; gap: 1rem; padding: 1rem 2rem;">
+    <div style="display: flex; gap: 1rem; padding: 1rem 2rem">
       <moco-button id="okay-button" caption="okay" dark></moco-button>
       <moco-button id="cancel-button" caption="cancel"></moco-button>
       <moco-button id="okay-button-disabled" caption="okay" dark disabled></moco-button>
       <moco-button id="cancel-button-disabled" caption="cancel" disabled></moco-button>
     </div>
 
-    <div style="display: flex; gap: 1rem; padding: 1rem 2rem;">
+    <div style="display: flex; gap: 1rem; padding: 1rem 2rem">
       <moco-switch id="dark-switch" dark></moco-switch>
       <moco-switch id="light-switch" checked></moco-switch>
       <moco-switch id="disabled-switch" disabled checked></moco-switch>
     </div>
 
-    <div style="width: 40rem; display: flex; flex-direction: column; gap: 1rem; padding: 1rem 2rem;">
+    <div style="width: 40rem; display: flex; flex-direction: column; gap: 1rem; padding: 1rem 2rem">
       <moco-select id="light-select">
         <span>alma</span>
         <span>barack</span>
@@ -70,7 +70,7 @@
       </moco-select>
     </div>
 
-    <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: center; margin: 1rem;">
+    <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: center; margin: 1rem">
       <moco-loader mode="tiny" dark transparent></moco-loader>
       <moco-loader mode="tiny" transparent></moco-loader>
       <moco-loader mode="tiny" dark></moco-loader>
@@ -81,56 +81,51 @@
       <moco-loader mode="huge" dark></moco-loader>
     </div>
 
-
-
     <script>
-      const almaCompot = document.getElementById('alma');
-      almaCompot.addEventListener('inputchange', (e) => {
-        myFunction(e.detail);
-      });
-
-      setInterval(() => {
-        if (almaCompot) {
-          almaCompot.error = true;
-        }
-      }, 3000);
-
-      const myFunction = (value) => {
+      const myFunction = value => {
         console.log(value);
-      }
+      };
 
-      const okayButton = document.getElementById('okay-button');
-      const cancelButton = document.getElementById('cancel-button');
-      okayButton.addEventListener('clicked', (e) => {
-        myFunction(e.detail);
-      });
-      cancelButton.addEventListener('clicked', (e) => {
-        myFunction(e.detail);
-      });
+      // const almaCompot = document.getElementById('alma');
+      // almaCompot.addEventListener('inputchange', e => {
+      //   myFunction(e.detail);
+      // });
 
-      const okayButtonDisabled = document.getElementById('okay-button-disabled');
-      const cancelButtonDisabled = document.getElementById('cancel-button-disabled');
-      okayButtonDisabled.addEventListener('clicked', (e) => {
-        myFunction(e.detail);
-      });
-      cancelButtonDisabled.addEventListener('clicked', (e) => {
-        myFunction(e.detail);
-      });
+      // setInterval(() => {
+      //   if (almaCompot) {
+      //     almaCompot.error = true;
+      //   }
+      // }, 3000);
 
+      // const okayButton = document.getElementById('okay-button');
+      // const cancelButton = document.getElementById('cancel-button');
+      // okayButton.addEventListener('clicked', e => {
+      //   myFunction(e.detail);
+      // });
+      // cancelButton.addEventListener('clicked', e => {
+      //   myFunction(e.detail);
+      // });
 
-      const darkSwitch = document.getElementById("dark-switch");
-      const lightSwitch = document.getElementById("light-switch");
-      const disabledSwitch = document.getElementById("disabled-switch");
-      darkSwitch.addEventListener('switched', (e) => console.log(e.detail));
-      lightSwitch.addEventListener('switched', (e) => console.log(e.detail));
-      disabledSwitch.addEventListener('switched', (e) => console.log(e.detail));
+      // const okayButtonDisabled = document.getElementById('okay-button-disabled');
+      // const cancelButtonDisabled = document.getElementById('cancel-button-disabled');
+      // okayButtonDisabled.addEventListener('clicked', e => {
+      //   myFunction(e.detail);
+      // });
+      // cancelButtonDisabled.addEventListener('clicked', e => {
+      //   myFunction(e.detail);
+      // });
 
+      // const darkSwitch = document.getElementById('dark-switch');
+      // const lightSwitch = document.getElementById('light-switch');
+      // const disabledSwitch = document.getElementById('disabled-switch');
+      // darkSwitch.addEventListener('switched', e => console.log(e.detail));
+      // lightSwitch.addEventListener('switched', e => console.log(e.detail));
+      // disabledSwitch.addEventListener('switched', e => console.log(e.detail));
 
-      const lightSelect = document.getElementById('light-select');
-      lightSelect.addEventListener('opened', (e) => {
-        console.log(e.detail);
-      });
-
+      // const lightSelect = document.getElementById('light-select');
+      // lightSelect.addEventListener('opened', e => {
+      //   console.log(e.detail);
+      // });
     </script>
   </body>
 </html>

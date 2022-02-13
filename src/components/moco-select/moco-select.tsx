@@ -43,12 +43,15 @@ export class MocoSelect {
   }
 
   _outsideClick() {
-    this.isOpen = false;
-    this.opened.emit(this.isOpen);
+    if (this.isOpen) {
+      this.isOpen = false;
+      this.opened.emit(this.isOpen);
+    }
   }
 
   render() {
-    const carouselClass = (this.isOpen) ? "carousel-icons-up" : "carousel-icons-down"
+    const carouselClass = (this.isOpen) ? "carousel-icons-up" : "carousel-icons-down";
+    const popoveClass = (this.isOpen) ? "popover-open" : "popover";
 
     return (
       <div class="container" tabindex={0} onClick={this.onClick.bind(this)}>
@@ -64,16 +67,9 @@ export class MocoSelect {
           </div>
         </div>
 
-        {(this.isOpen)
-          ? (
-            <div class="popover">
-              <slot></slot>
-            </div>
-          )
-          : (
-            null
-          )
-        }
+        <div class={popoveClass}>
+          <slot></slot>
+        </div>
       </div>
     );
   }

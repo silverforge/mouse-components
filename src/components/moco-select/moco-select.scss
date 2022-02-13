@@ -82,6 +82,7 @@
   max-height: 0rem;
   overflow-y: scroll;
   overflow-x: hidden;
+  overscroll-behavior: contain;
 
   transition: all .3s ease-out;
 
@@ -93,6 +94,6 @@
     color: $color-text-light;
     
     max-height: 15rem;
-    @include shadow-sm;
+    @include shadow-md;
   }
 }

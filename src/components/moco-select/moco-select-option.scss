@@ -4,8 +4,8 @@
 
 .option {
   padding: .75rem;
-
   transition: all .3s ease-out;
+  cursor: pointer;
 
   &:hover {
     background-color: $color-background-dark;

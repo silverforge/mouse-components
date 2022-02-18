@@ -28,6 +28,7 @@
   &:disabled {
     background-color: $color-background-disabled;
     color: $color-text-disabled;
+    cursor: default;
   }
 
   &-dark {

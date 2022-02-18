@@ -1,0 +1,37 @@
+@import '../../scss/defaults';
+@import '../../scss/variables';
+@import '../../scss/shadows';
+
+.option {
+  padding: .75rem;
+  transition: all .3s ease-out;
+  cursor: pointer;
+
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2.5rem;
+    background-color: $mui-grey-300;
+    z-index: -1;
+    transition: all .3s ease-out;
+  }
+
+  &:hover::after {
+    left: 0;
+  }
+}
+
+.option-selected {
+  @extend .option;
+
+  &::after {
+    background-color: $color-background-dark;
+    left: 0;
+  }
+}

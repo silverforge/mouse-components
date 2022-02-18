@@ -1,4 +1,4 @@
-import { h, Component, State, EventEmitter, Event, Listen } from "@stencil/core";
+import { h, Component, State, EventEmitter, Event, Listen, Element } from "@stencil/core";
 
 const menuUp = (
   <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24" viewBox="0 0 24 24">
@@ -18,7 +18,9 @@ const menuDown = (
   shadow: true,
 })
 export class MocoSelect {
+  @Element() element: HTMLElement;
   @State() isOpen: boolean = false;
+  @State() selectedItemValue: string | undefined;
 
   @Event({
     eventName: 'opened',
@@ -26,18 +28,24 @@ export class MocoSelect {
     composed: true
   }) opened: EventEmitter<boolean>;
 
+  @Event({
+    eventName: 'mocoSelectSelectedValueChanged',
+    bubbles: false,
+    composed: false,
+    
+  }) selectedValueChanged: EventEmitter<string>;
+
   @Listen('mocoOptionSelected')
   optionSelected(event: CustomEvent<string>) {
-    console.log(event.detail);
+    this.selectedItemValue = event.detail;
+    this.selectedValueChanged.emit(event.detail);
   }
 
   connectedCallback() {
-    console.log("connected");
     document.addEventListener('click', this._outsideClick.bind(this));
   }
 
   disconnectedCallback() {
-    console.log("disconnected");
     document.removeEventListener('click', this._outsideClick);
   }
 
@@ -56,12 +64,12 @@ export class MocoSelect {
 
   render() {
     const carouselClass = (this.isOpen) ? "carousel-icons-up" : "carousel-icons-down";
-    const popoveClass = (this.isOpen) ? "popover-open" : "popover";
+    const popoverClass = (this.isOpen) ? "popover-open" : "popover";
 
     return (
       <div class="container" tabindex={0} onClick={this.onClick.bind(this)}>
         <div class="control">
-          <span>Select an item...</span>
+          <span>{(this.selectedItemValue) ? this.selectedItemValue : "Select an item..."}</span>
           <div class={carouselClass}>
             <div class="icon-box">
               {menuUp}
@@ -72,7 +80,7 @@ export class MocoSelect {
           </div>
         </div>
 
-        <div class={popoveClass}>
+        <div class={popoverClass}>
           <slot></slot>
         </div>
       </div>

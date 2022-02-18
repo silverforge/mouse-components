@@ -55,6 +55,7 @@ export namespace Components {
     interface MocoSelect {
     }
     interface MocoSelectOption {
+        "selected": boolean;
         "value": string;
     }
     interface MocoSwitch {
@@ -174,10 +175,12 @@ declare namespace LocalJSX {
         "transparent"?: boolean;
     }
     interface MocoSelect {
+        "onMocoSelectSelectedValueChanged"?: (event: CustomEvent<string>) => void;
         "onOpened"?: (event: CustomEvent<boolean>) => void;
     }
     interface MocoSelectOption {
         "onMocoOptionSelected"?: (event: CustomEvent<string>) => void;
+        "selected"?: boolean;
         "value"?: string;
     }
     interface MocoSwitch {

@@ -39,21 +39,37 @@ export class MocoSelect {
     this.selectedItemValue = event.detail;
     this.selectedValueChanged.emit(event.detail);
 
-    const mocooptions = this.element.querySelectorAll('moco-select-option');
-    if (mocooptions) {
-      mocooptions.forEach(mso => {
+    let clonedElement: any;
+    const mocoOptionElements = this.element.querySelectorAll('moco-select-option');
+    if (mocoOptionElements) {
+      mocoOptionElements.forEach(mso => {
         const valueAttr = mso.getAttribute('value');
         if (valueAttr === this.selectedItemValue) {
           mso.setAttribute('selected', 'true');
+          clonedElement = mso.cloneNode(true);
+          clonedElement.setAttribute('slot', 'selected-value');
         } else {
           mso.removeAttribute('selected');
         }
       });
     }
+
+    const addedMocoOptionElements = this.element.querySelectorAll('*[slot="selected-value"]');
+    addedMocoOptionElements.forEach(amso => {
+      this.element.removeChild(amso);
+    });
+
+    if (clonedElement) {
+      this.element.appendChild(clonedElement);
+    }
   }
 
   connectedCallback() {
     document.addEventListener('click', this._outsideClick.bind(this));
+    const selectElementPlaceHolder = document.createElement('span');
+    selectElementPlaceHolder.innerText = "Select an item...";
+    selectElementPlaceHolder.setAttribute('slot', 'selected-value');
+    this.element.appendChild(selectElementPlaceHolder);
   }
 
   disconnectedCallback() {
@@ -80,7 +96,9 @@ export class MocoSelect {
     return (
       <div class="container" tabindex={0} onClick={this.onClick.bind(this)}>
         <div class="control">
-          <span>{(this.selectedItemValue) ? this.selectedItemValue : "Select an item..."}</span>
+          <div class="selected-element">
+            <slot name="selected-value"></slot>
+          </div>
           <div class={carouselClass}>
             <div class="icon-box">
               {menuUp}

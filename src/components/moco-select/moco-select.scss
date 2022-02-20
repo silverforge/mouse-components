@@ -2,6 +2,12 @@
 @import '../../scss/variables';
 @import '../../scss/shadows';
 
+
+::slotted(span) {
+  padding: 1rem;
+  color: $mui-grey-400;
+}
+
 .container {
   position: relative;
   outline: none;
@@ -26,12 +32,9 @@
 
   display: flex;
 
-  & > span {
+  & > div.selected-element {
     flex: 1;
     align-self: center;
-    padding-left: 1rem;
-    color: $mui-grey-500;
-    letter-spacing: 1px;
   }
 }
 

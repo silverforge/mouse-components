@@ -1,4 +1,4 @@
-import { h, Component, Prop, EventEmitter, Event, Listen } from "@stencil/core";
+import { h, Component, Prop, EventEmitter, Event } from "@stencil/core";
 
 @Component({
   tag: 'moco-select-option',

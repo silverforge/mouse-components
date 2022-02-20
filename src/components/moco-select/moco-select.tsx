@@ -45,9 +45,10 @@ export class MocoSelect {
       mocoOptionElements.forEach(mso => {
         const valueAttr = mso.getAttribute('value');
         if (valueAttr === this.selectedItemValue) {
-          mso.setAttribute('selected', 'true');
           clonedElement = mso.cloneNode(true);
           clonedElement.setAttribute('slot', 'selected-value');
+          clonedElement.setAttribute('no-click', 'true');
+          mso.setAttribute('selected', 'true');
         } else {
           mso.removeAttribute('selected');
         }

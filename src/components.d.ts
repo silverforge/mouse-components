@@ -55,6 +55,7 @@ export namespace Components {
     interface MocoSelect {
     }
     interface MocoSelectOption {
+        "noClick": boolean;
         "selected": boolean;
         "value": string;
     }
@@ -179,6 +180,7 @@ declare namespace LocalJSX {
         "onOpened"?: (event: CustomEvent<boolean>) => void;
     }
     interface MocoSelectOption {
+        "noClick"?: boolean;
         "onMocoOptionSelected"?: (event: CustomEvent<string>) => void;
         "selected"?: boolean;
         "value"?: string;

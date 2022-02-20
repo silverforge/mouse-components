@@ -29,6 +29,7 @@
 
 .option-selected {
   @extend .option;
+  color: $color-text-dark;
 
   &::after {
     background-color: $mui-grey-500;

@@ -22,33 +22,80 @@ export class MocoSelect {
   @State() isOpen: boolean = false;
   @State() selectedItemValue: string | undefined;
 
+  /**
+   * popver opened
+   */
   @Event({
     eventName: 'opened',
     bubbles: false,
     composed: true
   }) opened: EventEmitter<boolean>;
 
+  /**
+   * selected value changed
+   */
   @Event({
     eventName: 'selectedValueChanged',
     bubbles: false,
-    composed: false,
+    composed: true,
   }) selectedValueChanged: EventEmitter<string>;
 
   @Listen('mocoOptionSelected')
   optionSelected(event: CustomEvent<string>) {
     this.selectedItemValue = event.detail;
     this.selectedValueChanged.emit(event.detail);
+    this._updateSelectedElement();
+  }
 
+  connectedCallback() {
+    document.addEventListener('click', this._outsideClick.bind(this));
+    this._setInitialSelectedElement();
+  }
+
+  disconnectedCallback() {
+    document.removeEventListener('click', this._outsideClick);
+  }
+
+  onClick(e: Event) {
+    this.isOpen = !this.isOpen;
+    e.stopPropagation();
+    this.opened.emit(this.isOpen);
+  }
+
+  _setInitialSelectedElement() {
+    const mocoOptionElements = this.element.querySelectorAll('moco-select-option[selected]');
+
+    if (mocoOptionElements && mocoOptionElements.length > 0) {
+      this.selectedItemValue = mocoOptionElements[0].getAttribute('value');
+      this._updateSelectedElement();
+    } else {
+      const selectElementPlaceHolder = document.createElement('span');
+      selectElementPlaceHolder.innerText = "Select an item...";
+      selectElementPlaceHolder.setAttribute('slot', 'selected-value');
+      this.element.appendChild(selectElementPlaceHolder);  
+    }
+  }
+
+  _outsideClick() {
+    if (this.isOpen) {
+      this.isOpen = false;
+      this.opened.emit(this.isOpen);
+    }
+  }
+
+  _updateSelectedElement() {
     let clonedElement: any;
     const mocoOptionElements = this.element.querySelectorAll('moco-select-option');
     if (mocoOptionElements) {
       mocoOptionElements.forEach(mso => {
         const valueAttr = mso.getAttribute('value');
         if (valueAttr === this.selectedItemValue) {
+          mso.setAttribute('selected', 'true');
+
           clonedElement = mso.cloneNode(true);
           clonedElement.setAttribute('slot', 'selected-value');
           clonedElement.setAttribute('no-click', 'true');
-          mso.setAttribute('selected', 'true');
+          clonedElement.removeAttribute('selected');
         } else {
           mso.removeAttribute('selected');
         }
@@ -62,31 +109,6 @@ export class MocoSelect {
 
     if (clonedElement) {
       this.element.appendChild(clonedElement);
-    }
-  }
-
-  connectedCallback() {
-    document.addEventListener('click', this._outsideClick.bind(this));
-    const selectElementPlaceHolder = document.createElement('span');
-    selectElementPlaceHolder.innerText = "Select an item...";
-    selectElementPlaceHolder.setAttribute('slot', 'selected-value');
-    this.element.appendChild(selectElementPlaceHolder);
-  }
-
-  disconnectedCallback() {
-    document.removeEventListener('click', this._outsideClick);
-  }
-
-  onClick(e: Event) {
-    this.isOpen = !this.isOpen;
-    e.stopPropagation();
-    this.opened.emit(this.isOpen);
-  }
-
-  _outsideClick() {
-    if (this.isOpen) {
-      this.isOpen = false;
-      this.opened.emit(this.isOpen);
     }
   }
 

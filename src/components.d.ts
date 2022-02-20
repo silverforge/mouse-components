@@ -55,8 +55,17 @@ export namespace Components {
     interface MocoSelect {
     }
     interface MocoSelectOption {
+        /**
+          * no clicks allowed
+         */
         "noClick": boolean;
+        /**
+          * is selected
+         */
         "selected": boolean;
+        /**
+          * value
+         */
         "value": string;
     }
     interface MocoSwitch {
@@ -176,13 +185,31 @@ declare namespace LocalJSX {
         "transparent"?: boolean;
     }
     interface MocoSelect {
+        /**
+          * popver opened
+         */
         "onOpened"?: (event: CustomEvent<boolean>) => void;
+        /**
+          * selected value changed
+         */
         "onSelectedValueChanged"?: (event: CustomEvent<string>) => void;
     }
     interface MocoSelectOption {
+        /**
+          * no clicks allowed
+         */
         "noClick"?: boolean;
+        /**
+          * option selected click
+         */
         "onMocoOptionSelected"?: (event: CustomEvent<string>) => void;
+        /**
+          * is selected
+         */
         "selected"?: boolean;
+        /**
+          * value
+         */
         "value"?: string;
     }
     interface MocoSwitch {

@@ -7,16 +7,18 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type     | Default     |
-| -------- | --------- | ----------- | -------- | ----------- |
-| `value`  | `value`   |             | `string` | `undefined` |
+| Property   | Attribute  | Description       | Type      | Default     |
+| ---------- | ---------- | ----------------- | --------- | ----------- |
+| `noClick`  | `no-click` | no clicks allowed | `boolean` | `undefined` |
+| `selected` | `selected` | is selected       | `boolean` | `false`     |
+| `value`    | `value`    | value             | `string`  | `undefined` |
 
 
 ## Events
 
-| Event                | Description | Type                  |
-| -------------------- | ----------- | --------------------- |
-| `mocoOptionSelected` |             | `CustomEvent<string>` |
+| Event                | Description           | Type                  |
+| -------------------- | --------------------- | --------------------- |
+| `mocoOptionSelected` | option selected click | `CustomEvent<string>` |
 
 
 ----------------------------------------------

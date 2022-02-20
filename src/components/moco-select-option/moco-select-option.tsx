@@ -6,10 +6,16 @@ import { h, Component, Prop, EventEmitter, Event } from "@stencil/core";
   shadow: true
 })
 export class MocoSelectOption {
+  /** value */
   @Prop() value: string;
+  /** no clicks allowed */
   @Prop() noClick: boolean;
+  /** is selected */
   @Prop({ reflect: true, mutable: true }) selected: boolean = false;
 
+  /**
+   * option selected click
+   */
   @Event({
     eventName: 'mocoOptionSelected',
     bubbles: true,

@@ -7,9 +7,10 @@
 
 ## Events
 
-| Event    | Description | Type                   |
-| -------- | ----------- | ---------------------- |
-| `opened` |             | `CustomEvent<boolean>` |
+| Event                  | Description            | Type                   |
+| ---------------------- | ---------------------- | ---------------------- |
+| `opened`               | popver opened          | `CustomEvent<boolean>` |
+| `selectedValueChanged` | selected value changed | `CustomEvent<string>`  |
 
 
 ----------------------------------------------

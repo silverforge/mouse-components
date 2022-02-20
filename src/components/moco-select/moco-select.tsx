@@ -1,17 +1,5 @@
 import { h, Component, State, EventEmitter, Event, Listen, Element } from "@stencil/core";
 
-const menuUp = (
-  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24" viewBox="0 0 24 24">
-    <path d="M7,15L12,10L17,15H7Z" />
-  </svg>
-);
-
-const menuDown = (
-  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24" viewBox="0 0 24 24">
-    <path d="M7,10L12,15L17,10H7Z" />
-  </svg>
-);
-
 @Component({
   tag: 'moco-select',
   styleUrl: 'moco-select.scss',
@@ -113,6 +101,18 @@ export class MocoSelect {
   }
 
   render() {
+    const menuUp = (
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M7,15L12,10L17,15H7Z" />
+      </svg>
+    );
+    
+    const menuDown = (
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M7,10L12,15L17,10H7Z" />
+      </svg>
+    );
+    
     const carouselClass = (this.isOpen) ? "carousel-icons-up" : "carousel-icons-down";
     const popoverClass = (this.isOpen) ? "popover-open" : "popover";
 

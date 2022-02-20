@@ -32,13 +32,24 @@ export class MocoSelect {
     eventName: 'mocoSelectSelectedValueChanged',
     bubbles: false,
     composed: false,
-    
   }) selectedValueChanged: EventEmitter<string>;
 
   @Listen('mocoOptionSelected')
   optionSelected(event: CustomEvent<string>) {
     this.selectedItemValue = event.detail;
     this.selectedValueChanged.emit(event.detail);
+
+    const mocooptions = this.element.querySelectorAll('moco-select-option');
+    if (mocooptions) {
+      mocooptions.forEach(mso => {
+        const valueAttr = mso.getAttribute('value');
+        if (valueAttr === this.selectedItemValue) {
+          mso.setAttribute('selected', 'true');
+        } else {
+          mso.removeAttribute('selected');
+        }
+      });
+    }
   }
 
   connectedCallback() {

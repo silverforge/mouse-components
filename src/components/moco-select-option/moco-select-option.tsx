@@ -13,14 +13,8 @@ export class MocoSelectOption {
   @Event({
     eventName: 'mocoOptionSelected',
     bubbles: true,
-    composed: true
+    composed: true,
   }) clicked: EventEmitter<string>;
-
-
-  @Listen('mocoSelectSelectedValueChanged', { capture: true, passive: true })
-  selectedValueChanged(e) {
-    console.log('listener', this.value, e.detail);
-  }
 
   onClick() {
     this.clicked.emit(this.value);

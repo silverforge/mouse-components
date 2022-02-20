@@ -176,8 +176,8 @@ declare namespace LocalJSX {
         "transparent"?: boolean;
     }
     interface MocoSelect {
-        "onMocoSelectSelectedValueChanged"?: (event: CustomEvent<string>) => void;
         "onOpened"?: (event: CustomEvent<boolean>) => void;
+        "onSelectedValueChanged"?: (event: CustomEvent<string>) => void;
     }
     interface MocoSelectOption {
         "noClick"?: boolean;

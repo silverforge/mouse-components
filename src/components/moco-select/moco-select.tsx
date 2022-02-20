@@ -29,7 +29,7 @@ export class MocoSelect {
   }) opened: EventEmitter<boolean>;
 
   @Event({
-    eventName: 'mocoSelectSelectedValueChanged',
+    eventName: 'selectedValueChanged',
     bubbles: false,
     composed: false,
   }) selectedValueChanged: EventEmitter<string>;

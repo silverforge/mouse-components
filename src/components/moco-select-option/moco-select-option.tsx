@@ -17,7 +17,7 @@ export class MocoSelectOption {
    * option selected click
    */
   @Event({
-    eventName: 'mocoOptionSelected',
+    eventName: 'optionSelected',
     bubbles: true,
     composed: true,
   }) clicked: EventEmitter<string>;

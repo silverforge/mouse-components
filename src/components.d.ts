@@ -202,7 +202,7 @@ declare namespace LocalJSX {
         /**
           * option selected click
          */
-        "onMocoOptionSelected"?: (event: CustomEvent<string>) => void;
+        "onOptionSelected"?: (event: CustomEvent<string>) => void;
         /**
           * is selected
          */

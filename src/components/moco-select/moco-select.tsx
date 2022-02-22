@@ -94,6 +94,7 @@ export class MocoSelect {
     }
 
     this._swapselectedElement(clonedElement);
+    (this.element.shadowRoot.querySelector('.container') as HTMLDivElement).focus();
   }
 
   _cloneOptionElement(mocoOptionElement: HTMLMocoSelectOptionElement) {
@@ -117,8 +118,8 @@ export class MocoSelect {
     const popoverClass = (this.isOpen) ? "popover-open" : "popover";
 
     return (
-      <div class="container">
-        <div id="control-item" class="control" onClick={this.onClick.bind(this)}>
+      <div class="container" tabindex={0}>
+        <div class="control" onClick={this.onClick.bind(this)}>
           <div class="selected-element">
             <slot name="selected-value"></slot>
           </div>
@@ -134,6 +135,7 @@ export class MocoSelect {
               </svg>
             </div>
           </div>
+          <div class="control-clickbox"></div>
         </div>
 
         <div class={popoverClass}>

@@ -1,6 +1,7 @@
 @import '../../scss/defaults';
 @import '../../scss/variables';
 @import '../../scss/shadows';
+@import '../../scss/after-label';
 
 @mixin inputStyle($isDark) {
   border-radius: $default-border-radius;
@@ -146,19 +147,7 @@
   }
 
   &::after {
-    content: attr(data-label-text);
-    position: absolute;
-    top: -0.6rem;
-    left: 0.5rem;
-    background-color: $color-background-light;
-    padding: 0 0.5rem 0.2rem 0.5rem;
-    border-radius: 1rem;
-
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-    text-transform: lowercase;
-
-    transition: all 0.3s ease-in;
+    @include afterLabel;
   }
 
   &:focus-within::after {

@@ -61,6 +61,10 @@ export namespace Components {
           * style of the button (dark) or not
          */
         "dark": boolean;
+        /**
+          * field label text
+         */
+        "label": string;
     }
     interface MocoSelectOption {
         /**
@@ -201,6 +205,10 @@ declare namespace LocalJSX {
           * style of the button (dark) or not
          */
         "dark"?: boolean;
+        /**
+          * field label text
+         */
+        "label"?: string;
         /**
           * popver opened
          */

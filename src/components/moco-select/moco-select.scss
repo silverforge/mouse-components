@@ -1,6 +1,7 @@
 @import '../../scss/defaults';
 @import '../../scss/variables';
 @import '../../scss/shadows';
+@import '../../scss/after-label';
 
 ::slotted(span) {
   padding: 1rem;
@@ -16,6 +17,15 @@
     border: 1px solid $color-border-light-focused;
     background-color: $color-background-light-focused;
     @include shadow-sm;
+  }
+
+  &:focus-within::after {
+    background-color: $color-background-light-focused;
+    left: 1rem;
+  }
+
+  &::after {
+    @include afterLabel;
   }
 }
 

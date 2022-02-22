@@ -10,6 +10,8 @@ export class MocoSelect {
   @State() isOpen: boolean = false;
   @State() selectedItemValue: string | undefined;
   @State() isOnClick: boolean = false;
+  /** field label text */
+  @Prop() label: string;
   /** style of the button (dark) or not */
   @Prop() dark: boolean;
   /** popver opened */
@@ -118,7 +120,7 @@ export class MocoSelect {
     const popoverClass = (this.isOpen) ? "popover-open" : "popover";
 
     return (
-      <div class="container" tabindex={0}>
+      <div class="container" tabindex={0} data-label-text={this.label}>
         <div class="control" onClick={this.onClick.bind(this)}>
           <div class="selected-element">
             <slot name="selected-value"></slot>

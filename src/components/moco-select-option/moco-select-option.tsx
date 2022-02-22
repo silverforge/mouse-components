@@ -10,6 +10,8 @@ export class MocoSelectOption {
   @Prop() value: string;
   /** no clicks allowed */
   @Prop() noClick: boolean;
+  /** style of the button (dark) or not */
+  @Prop() dark: boolean;
   /** is selected */
   @Prop({ reflect: true, mutable: true }) selected: boolean = false;
 
@@ -30,7 +32,10 @@ export class MocoSelectOption {
   }
 
   render() {
-    const optionClass = (this.selected) ? "option-selected" : "option";
+    let optionClass = (this.selected) ? "option-selected" : "option";
+    if (this.dark) {
+      optionClass += "-dark";
+    }
 
     return (
       <div class={optionClass} onClick={this.onClick.bind(this)}>

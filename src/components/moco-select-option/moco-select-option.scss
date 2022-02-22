@@ -25,6 +25,14 @@
   &:hover::after {
     left: 0;
   }
+
+  &-dark {
+    @extend .option;
+
+    &::after {
+      background-color: $mui-grey-500;
+    }
+  }
 }
 
 .option-selected {
@@ -34,5 +42,13 @@
   &::after {
     background-color: $mui-grey-500;
     left: 0;
+  }
+
+  &-dark {
+    @extend .option-selected;
+
+    &::after {
+      background-color: $mui-grey-800;
+    }
   }
 }

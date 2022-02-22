@@ -68,6 +68,10 @@ export namespace Components {
     }
     interface MocoSelectOption {
         /**
+          * style of the button (dark) or not
+         */
+        "dark": boolean;
+        /**
           * no clicks allowed
          */
         "noClick": boolean;
@@ -219,6 +223,10 @@ declare namespace LocalJSX {
         "onSelectedValueChanged"?: (event: CustomEvent<string>) => void;
     }
     interface MocoSelectOption {
+        /**
+          * style of the button (dark) or not
+         */
+        "dark"?: boolean;
         /**
           * no clicks allowed
          */

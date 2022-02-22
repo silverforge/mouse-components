@@ -45,8 +45,6 @@
   }
 }
 
-
-
 .icon-box {
   display: flex;
   align-items: center;
@@ -70,7 +68,7 @@
 
   &-up {
     @extend .carousel-icons;
-    margin-top: 0;
+    margin-top: -.1rem;
   }
 
   &-down {

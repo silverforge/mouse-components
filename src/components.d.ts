@@ -26,6 +26,10 @@ export namespace Components {
          */
         "dark": boolean;
         /**
+          * disabled
+         */
+        "disabled": boolean;
+        /**
           * is error or not
          */
         "error": boolean;
@@ -157,6 +161,10 @@ declare namespace LocalJSX {
           * style of the button (dark) or not
          */
         "dark"?: boolean;
+        /**
+          * disabled
+         */
+        "disabled"?: boolean;
         /**
           * is error or not
          */

@@ -12,6 +12,8 @@ export class MocoInputText {
   @Prop() label: string;
   /** style of the button (dark) or not */
   @Prop() dark: boolean;
+  /** disabled */
+  @Prop() disabled: boolean = false;
   /** is error or not */
   @Prop({ reflect: true, mutable: true }) error: boolean;
   /** 
@@ -51,6 +53,7 @@ export class MocoInputText {
         <slot></slot>
         <input 
             type="text" 
+            disabled={this.disabled}
             placeholder={this.placeholder} 
             value={this.value} 
             onInput={this.onInputChange.bind(this)} />

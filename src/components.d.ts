@@ -53,6 +53,10 @@ export namespace Components {
         "transparent": boolean;
     }
     interface MocoSelect {
+        /**
+          * style of the button (dark) or not
+         */
+        "dark": boolean;
     }
     interface MocoSelectOption {
         /**
@@ -185,6 +189,10 @@ declare namespace LocalJSX {
         "transparent"?: boolean;
     }
     interface MocoSelect {
+        /**
+          * style of the button (dark) or not
+         */
+        "dark"?: boolean;
         /**
           * popver opened
          */

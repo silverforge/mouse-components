@@ -1,4 +1,4 @@
-import { h, Component, State, EventEmitter, Event, Listen, Element } from "@stencil/core";
+import { h, Component, State, EventEmitter, Event, Listen, Element, Prop } from "@stencil/core";
 
 @Component({
   tag: 'moco-select',
@@ -9,19 +9,16 @@ export class MocoSelect {
   @Element() element: HTMLElement;
   @State() isOpen: boolean = false;
   @State() selectedItemValue: string | undefined;
-
-  /**
-   * popver opened
-   */
+  @State() isOnClick: boolean = false;
+  /** style of the button (dark) or not */
+  @Prop() dark: boolean;
+  /** popver opened */
   @Event({
     eventName: 'opened',
     bubbles: false,
     composed: true
   }) opened: EventEmitter<boolean>;
-
-  /**
-   * selected value changed
-   */
+  /** selected value changed */
   @Event({
     eventName: 'selectedValueChanged',
     bubbles: false,
@@ -44,10 +41,10 @@ export class MocoSelect {
     document.removeEventListener('click', this._outsideClick);
   }
 
-  onClick(e: Event) {
+  onClick() {
     this.isOpen = !this.isOpen;
-    e.stopPropagation();
     this.opened.emit(this.isOpen);
+    this.isOnClick = true;
   }
 
   _setInitialSelectedElement() {
@@ -60,74 +57,73 @@ export class MocoSelect {
       const selectElementPlaceHolder = document.createElement('span');
       selectElementPlaceHolder.innerText = "Select an item...";
       selectElementPlaceHolder.setAttribute('slot', 'selected-value');
-      this.element.appendChild(selectElementPlaceHolder);  
+      this.element.appendChild(selectElementPlaceHolder);
     }
   }
 
   _outsideClick() {
-    if (this.isOpen) {
+    if (this.isOpen && !this.isOnClick) {
       this.isOpen = false;
       this.opened.emit(this.isOpen);
+    } else {
+      this.isOnClick = false;
     }
   }
 
   _updateSelectedElement() {
-    let clonedElement: any;
+    let clonedElement: HTMLMocoSelectOptionElement;
     const mocoOptionElements = this.element.querySelectorAll('moco-select-option');
     if (mocoOptionElements) {
       mocoOptionElements.forEach(mso => {
         const valueAttr = mso.getAttribute('value');
         if (valueAttr === this.selectedItemValue) {
           mso.setAttribute('selected', 'true');
-
-          clonedElement = mso.cloneNode(true);
-          clonedElement.setAttribute('slot', 'selected-value');
-          clonedElement.setAttribute('no-click', 'true');
-          clonedElement.removeAttribute('selected');
+          clonedElement = this._cloneOptionElement(mso);
         } else {
           mso.removeAttribute('selected');
         }
       });
     }
 
+    this._swapselectedElement(clonedElement);
+  }
+
+  _cloneOptionElement(mocoOptionElement: HTMLMocoSelectOptionElement) {
+    let clonedElement = mocoOptionElement.cloneNode(true) as HTMLMocoSelectOptionElement;
+    clonedElement.setAttribute('slot', 'selected-value');
+    clonedElement.setAttribute('no-click', 'true');
+    clonedElement.removeAttribute('selected');
+    return clonedElement;
+  }
+
+  _swapselectedElement(newElement: HTMLMocoSelectOptionElement) {
     const addedMocoOptionElements = this.element.querySelectorAll('*[slot="selected-value"]');
     addedMocoOptionElements.forEach(amso => {
       this.element.removeChild(amso);
     });
-
-    if (clonedElement) {
-      this.element.appendChild(clonedElement);
-    }
+    this.element.appendChild(newElement);
   }
 
   render() {
-    const menuUp = (
-      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24" viewBox="0 0 24 24">
-        <path d="M7,15L12,10L17,15H7Z" />
-      </svg>
-    );
-    
-    const menuDown = (
-      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24" viewBox="0 0 24 24">
-        <path d="M7,10L12,15L17,10H7Z" />
-      </svg>
-    );
-    
     const carouselClass = (this.isOpen) ? "carousel-icons-up" : "carousel-icons-down";
     const popoverClass = (this.isOpen) ? "popover-open" : "popover";
 
     return (
-      <div class="container" tabindex={0} onClick={this.onClick.bind(this)}>
-        <div class="control">
+      <div class="container">
+        <div id="control-item" class="control" onClick={this.onClick.bind(this)}>
           <div class="selected-element">
             <slot name="selected-value"></slot>
           </div>
           <div class={carouselClass}>
             <div class="icon-box">
-              {menuUp}
+              <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M7,15L12,10L17,15H7Z" />
+              </svg>
             </div>
             <div class="icon-box">
-              {menuDown}
+              <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M7,10L12,15L17,10H7Z" />
+              </svg>
             </div>
           </div>
         </div>

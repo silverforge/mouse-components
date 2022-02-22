@@ -48,6 +48,7 @@ export class MocoInputText {
           class={inputClass} 
           data-label-text={this.label} 
           data-dark={this.dark ? "true" : "false"}>
+        <slot></slot>
         <input 
             type="text" 
             placeholder={this.placeholder} 

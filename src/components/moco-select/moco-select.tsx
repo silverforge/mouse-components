@@ -116,12 +116,21 @@ export class MocoSelect {
   }
 
   render() {
-    const carouselClass = (this.isOpen) ? "carousel-icons-up" : "carousel-icons-down";
-    const popoverClass = (this.isOpen) ? "popover-open" : "popover";
+    let containerClass = (this.label) ? "container-label" : "container";
+    let controlClass = "control";
+    let carouselClass = (this.isOpen) ? "carousel-icons-up" : "carousel-icons-down";
+    let popoverClass = (this.isOpen) ? "popover-open" : "popover";
+
+    if (this.dark) {
+      containerClass += "-dark";
+      controlClass += "-dark";
+      carouselClass += "-dark";
+      popoverClass += "-dark";
+    }
 
     return (
-      <div class="container" tabindex={0} data-label-text={this.label}>
-        <div class="control" onClick={this.onClick.bind(this)}>
+      <div class={containerClass} tabindex={0} data-label-text={this.label}>
+        <div class={controlClass} onClick={this.onClick.bind(this)}>
           <div class="selected-element">
             <slot name="selected-value"></slot>
           </div>

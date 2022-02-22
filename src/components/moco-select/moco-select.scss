@@ -89,13 +89,13 @@
   background-color: $color-background-light;
   color: $color-text-light;
 
-  transition: all .3s ease-out;
+  transition: all .1s ease-out;
 
   &-open {
     @extend .popover;
-    border: 1px solid $color-border-light;
     
     max-height: 15rem;
     @include shadow-md;
+    transition: all .3s ease-out;
   }
 }

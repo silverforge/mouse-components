@@ -32,6 +32,7 @@
   font-family: inherit;
   position: relative;
   @include inputStyle(light);
+  height: $default-input-control-height;
 
   &:focus-within {
     border: 1px solid $color-border-light-focused;
@@ -45,8 +46,9 @@
 
     background-color: transparent;
 
-    padding: 0.8rem 0.9rem;
+    padding: 0 0.9rem;
     width: 100%;
+    height: 100%;
 
     font-family: inherit;
     font-size: 1rem;

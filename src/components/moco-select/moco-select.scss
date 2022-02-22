@@ -25,8 +25,7 @@
   color: $color-text-light;
   border-radius: $default-border-radius;
 
-  max-height: 2.5rem;
-  height: 2.5rem;
+  height: $default-input-control-height;
   overflow: hidden;
   cursor: pointer;
 
@@ -54,13 +53,14 @@
   justify-content: center;
 
   width: 2.5rem;
-  height: 2.5rem;
+  height: $default-input-control-height;
 }
 
 .carousel-icons {
   display: flex;
   flex-direction: column;
   transition: all .3s ease-out;
+  height: calc(2 * $default-input-control-height);
 
   & svg {
     fill: $color-background-dark-focused;
@@ -70,12 +70,12 @@
 
   &-up {
     @extend .carousel-icons;
-    margin-top: .125rem;
+    margin-top: 0;
   }
 
   &-down {
     @extend .carousel-icons;
-    margin-top: -2.5rem;
+    margin-top: calc(-1 * $default-input-control-height);
   }
 }
 
@@ -85,7 +85,7 @@
   z-index: 10;
 
   position: absolute;
-  top: 2.8rem;
+  top: calc($default-input-control-height + 0.3rem);
   left: 0;
 
   border-radius: $default-border-radius;

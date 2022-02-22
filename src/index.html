@@ -18,10 +18,10 @@
     </div>
 
     <div style="display: flex; gap: 1rem; padding: 1rem 2rem">
-      <moco-button id="okay-button" caption="okay" dark></moco-button>
-      <moco-button id="cancel-button" caption="cancel"></moco-button>
-      <moco-button id="okay-button-disabled" caption="okay" dark disabled></moco-button>
-      <moco-button id="cancel-button-disabled" caption="cancel" disabled></moco-button>
+      <moco-button id="okay-button" dark>okay</moco-button>
+      <moco-button id="cancel-button">cancel</moco-button>
+      <moco-button id="okay-button-disabled" dark disabled>okay</moco-button>
+      <moco-button id="cancel-button-disabled" disabled>cancel</moco-button>
     </div>
 
     <div style="display: flex; gap: 1rem; padding: 1rem 2rem">
@@ -49,6 +49,16 @@
         <moco-select-option value="barack"><span>barack</span></moco-select-option>
         <moco-select-option value="citrom"><span>citrom</span></moco-select-option>
       </moco-select>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 1rem; padding: 1rem 2rem;">
+      <moco-input-text style="width: 20rem;" label="just a label" placeholder="just a placehodler"></moco-input-text>
+      <moco-select dark>
+        <moco-select-option value="alma"><span>alma</span></moco-select-option>
+        <moco-select-option value="barack"><span>barack</span></moco-select-option>
+        <moco-select-option value="citrom"><span>citrom</span></moco-select-option>
+      </moco-select>
+      <moco-button caption="done">done</moco-button>
     </div>
 
     <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: center; margin: 1rem">

@@ -93,8 +93,8 @@ export class MocoSelect {
       });
     }
 
-    this._swapselectedElement(clonedElement);
-    (this.element.shadowRoot.querySelector('.container') as HTMLDivElement).focus();
+    this._swapSelectedElement(clonedElement);
+    (this.element.shadowRoot.querySelector('.container') as HTMLDivElement)?.focus();
   }
 
   _cloneOptionElement(mocoOptionElement: HTMLMocoSelectOptionElement) {
@@ -105,7 +105,7 @@ export class MocoSelect {
     return clonedElement;
   }
 
-  _swapselectedElement(newElement: HTMLMocoSelectOptionElement) {
+  _swapSelectedElement(newElement: HTMLMocoSelectOptionElement) {
     const addedMocoOptionElements = this.element.querySelectorAll('*[slot="selected-value"]');
     addedMocoOptionElements.forEach(amso => {
       this.element.removeChild(amso);

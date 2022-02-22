@@ -6,8 +6,8 @@ import { h, Component, Prop, Event, EventEmitter } from "@stencil/core";
   shadow: true
 })
 export class MocoButton {
-  /** button text */
-  @Prop() caption: string;
+  /** value */
+  @Prop() value: string = "moco-button";
   /** style of the button (dark) or not */
   @Prop() dark: boolean;
   /** button disabled or not  */
@@ -15,7 +15,7 @@ export class MocoButton {
 
   /** 
    * event emitted on every button click,
-   * emitting the caption text of the button
+   * emitting the value of the button
    * */
   @Event({
     eventName: 'clicked',
@@ -24,7 +24,7 @@ export class MocoButton {
   }) clicked: EventEmitter<string>;
 
   onClick() {
-    this.clicked.emit(this.caption);
+    this.clicked.emit(this.value);
   }
 
   render() {
@@ -39,7 +39,7 @@ export class MocoButton {
           type="button" 
           disabled={this.disabled}
           onClick={this.onClick.bind(this)}>
-            {this.caption}
+            <slot></slot>
       </button>
     );
   }

@@ -8,10 +8,6 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface MocoButton {
         /**
-          * button text
-         */
-        "caption": string;
-        /**
           * style of the button (dark) or not
          */
         "dark": boolean;
@@ -19,6 +15,10 @@ export namespace Components {
           * button disabled or not
          */
         "disabled": boolean;
+        /**
+          * value
+         */
+        "value": string;
     }
     interface MocoInputText {
         /**
@@ -136,10 +136,6 @@ declare global {
 declare namespace LocalJSX {
     interface MocoButton {
         /**
-          * button text
-         */
-        "caption"?: string;
-        /**
           * style of the button (dark) or not
          */
         "dark"?: boolean;
@@ -148,9 +144,13 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * event emitted on every button click, emitting the caption text of the button
+          * event emitted on every button click, emitting the value of the button
          */
         "onClicked"?: (event: CustomEvent<string>) => void;
+        /**
+          * value
+         */
+        "value"?: string;
     }
     interface MocoInputText {
         /**

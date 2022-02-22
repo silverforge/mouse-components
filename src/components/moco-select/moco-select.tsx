@@ -34,11 +34,13 @@ export class MocoSelect {
 
   connectedCallback() {
     document.addEventListener('click', this._outsideClick.bind(this));
+    document.addEventListener('keydown', this._outsideKeypress.bind(this));
     this._setInitialSelectedElement();
   }
 
   disconnectedCallback() {
     document.removeEventListener('click', this._outsideClick);
+    document.removeEventListener('keydown', this._outsideKeypress);
   }
 
   onClick() {
@@ -67,6 +69,12 @@ export class MocoSelect {
       this.opened.emit(this.isOpen);
     } else {
       this.isOnClick = false;
+    }
+  }
+
+  _outsideKeypress(e: KeyboardEvent) {
+    if (e.key === 'Escape' || e.code === 'Escape') {
+      this._outsideClick();
     }
   }
 

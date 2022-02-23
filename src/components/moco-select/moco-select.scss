@@ -3,9 +3,32 @@
 @import '../../scss/shadows';
 @import '../../scss/after-label';
 
+
+:host([dark]) {
+  ::slotted(svg) {
+    fill: $mui-grey-200;
+  }  
+}
+
+::slotted(*[slot="decal"]) {
+  padding: {
+    left: .75rem;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+  align-self: center;
+}
+
 ::slotted(span) {
   padding: 1rem;
   color: $mui-grey-400;
+}
+
+::slotted(svg) {
+  fill: $mui-grey-600;
+  width: 20px;
+  height: 20px;
 }
 
 .container {

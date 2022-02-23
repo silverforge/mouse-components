@@ -16,6 +16,12 @@ export class MocoSelect {
   @Prop() label: string;
   /** style of the button (dark) or not */
   @Prop() dark: boolean;
+
+
+  @Prop() disabled: boolean = false;
+
+  @Prop() error: boolean = false;
+
   /** popver opened */
   @Event({
     eventName: 'opened',
@@ -133,6 +139,7 @@ export class MocoSelect {
     return (
       <div class={containerClass} tabindex={0} data-label-text={this.label}>
         <div class={controlClass} onClick={this.onClick.bind(this)}>
+          <slot name="decal"></slot>
           <div class="selected-element">
             <slot name="selected-value"></slot>
           </div>

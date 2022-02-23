@@ -27,19 +27,11 @@ export class MocoSwitch {
   }
 
   render() {
-    let knobClass = (this.checked) ? 'knob-set' : 'knob';
-    let containerClass = 'container';
-    if (this.disabled) {
-      knobClass = knobClass + '-disabled';
-      containerClass = containerClass + '-disabled';
-    } else if (this.dark) {
-      containerClass = 'container-dark';
-      knobClass = knobClass + '-dark';
-    }
+    const knobClass = (this.checked) ? 'knob-set' : 'knob';
 
     return (
       <div
-        class={containerClass}
+        class="container"
         tabIndex={(this.disabled) ? -1 : 0}
         onClick={this.onContainerClick.bind(this)}>
         <div class={knobClass}></div>

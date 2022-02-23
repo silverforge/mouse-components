@@ -93,7 +93,7 @@
   font-family: inherit;
   position: relative;
   @include inputStyle(light);
-  height: $default-input-control-height;
+  height: $default-control-height;
 
   &:focus-within {
     border: 1px solid $color-border-light-focused;

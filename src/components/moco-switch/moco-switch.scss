@@ -1,3 +1,4 @@
+@use 'sass:math';
 @import '../../scss/defaults';
 @import '../../scss/variables';
 @import '../../scss/shadows';
@@ -8,11 +9,56 @@
   border: 1px solid $mui-grey-200;
 }
 
+:host([dark]) {
+  .container {
+    border: 1px solid $color-border-dark;
+    background-color: $color-background-dark;
+
+    &:focus {
+      border: 1px solid $color-border-dark-focused;
+      @include shadow-sm;
+    }
+  }
+
+  .knob {
+    color: $color-text-light;
+    background-color: $mui-grey-300;
+    border: 1px solid $mui-grey-300;
+
+    &-set {
+      color: $color-text-light;
+      background-color: $color-background-light;
+      border: 1px solid $color-background-light;
+    }
+  }
+}
+
+:host([disabled]) {
+  .container {
+    background-color: $color-background-disabled;
+    cursor: default;
+
+    &:focus {
+      border: 1px solid $color-background-disabled;
+      box-shadow: 0 0 0 transparent;
+    }
+  }
+
+  .knob {
+    background-color: $color-text-disabled;
+    border: 1px solid $color-text-disabled;
+
+    &-set {
+      background-color: $color-text-disabled;
+    }
+  }
+}
+
 .container {
   min-width: 3rem;
-  min-height: 1.5rem;
+  min-height: math.div($default-control-height, 2);
   width: 3rem;
-  height: 1.5rem;
+  height: math.div($default-control-height, 2);
 
   border: 1px solid $color-border-light;
   border-radius: $default-border-radius;
@@ -28,46 +74,18 @@
     border: 1px solid $color-border-light-focused;
     @include shadow-sm;
   }
-
-  &-dark {
-    @extend .container;
-    border: 1px solid $color-border-dark;
-    background-color: $color-background-dark;
-
-    &:focus {
-      border: 1px solid $color-border-dark-focused;
-      @include shadow-sm;
-    }
-  }
-
-  &-disabled {
-    @extend .container;
-    background-color: $color-background-disabled;
-    cursor: default;
-
-    &:focus {
-      border: 1px solid $color-border-light;
-      box-shadow: none;
-    }
-  }
 }
 
 .knob {
   min-width: 1.25rem;
-  min-height: 1rem;
+  min-height: math.div($default-control-height, 2) - 0.5rem;
   width: 1.25rem;
-  height: 1rem;
+  height: math.div($default-control-height, 2) - 0.5rem;
 
   color: $color-text-dark;
   background-color: $mui-grey-500;
   border: 1px solid $mui-grey-500;
   border-radius: $default-border-radius;
-
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   position: absolute;
   top: 0.2rem;
@@ -75,34 +93,10 @@
 
   transition: all 0.3s ease-out;
 
-  &-dark {
-    @extend .knob;
-    color: $color-text-light;
-    background-color: $mui-grey-300;
-    border: 1px solid $mui-grey-300;  
-  }
-
-  &-disabled {
-    @extend .knob;
-    @include disabled-knob;
-  }
-
   &-set {
     @extend .knob;
     left: 1.4rem;
     border: 1px solid $color-background-dark;
     background-color: $color-background-dark;
-
-    &-dark {
-      @extend .knob-set;
-      color: $color-text-light;
-      background-color: $color-background-light;
-      border: 1px solid $color-background-light;
-    }
-  
-    &-disabled {
-      @extend .knob-set;
-      @include disabled-knob;
-    }
   }
 }

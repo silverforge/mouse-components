@@ -8,9 +8,9 @@ import { h, Component, Prop, Event, EventEmitter } from "@stencil/core";
 export class MocoButton {
   /** value */
   @Prop() value: string = "moco-button";
-  /** style of the button (dark) or not */
+  /** dark style */
   @Prop() dark: boolean;
-  /** button disabled or not  */
+  /** disabled  */
   @Prop() disabled: boolean;
 
   /** 
@@ -28,17 +28,13 @@ export class MocoButton {
   }
 
   render() {
-    let buttonClass = 'moco-button';
-    if (this.dark) {
-      buttonClass = 'moco-button-dark';
-    }
-
     return (
       <button 
-          class={buttonClass} 
+          class="moco-button" 
           type="button" 
           disabled={this.disabled}
           onClick={this.onClick.bind(this)}>
+            <slot name="decal"></slot>
             <slot></slot>
       </button>
     );

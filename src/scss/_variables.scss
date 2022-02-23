@@ -1,12 +1,14 @@
 @import './mui-colors';
 
 $default-input-control-height: 2.75rem;
+$default-border-radius: 5px;
+$default-svg-size: 20px;
+$default-gap: .5rem;
 
 $color-error: $mui-red-A400;
 
 $color-text-light: $mui-grey-800;
 $color-text-dark: $mui-grey-200;
-
 $color-text-disabled: $mui-grey-200;
 
 $color-background-light: $mui-grey-50;
@@ -14,7 +16,6 @@ $color-background-light-focused: white;
 
 $color-background-dark: $mui-grey-600;
 $color-background-dark-focused: $mui-grey-700;
-
 $color-background-disabled: $mui-grey-300;
 
 $color-border-light: $mui-grey-300;
@@ -23,4 +24,5 @@ $color-border-light-focused: $mui-grey-800;
 $color-border-dark: $mui-grey-800;
 $color-border-dark-focused: black;
 
-$default-border-radius: 5px;
+$color-svg-light: $mui-grey-600;
+$color-svg-dark: $mui-grey-200;

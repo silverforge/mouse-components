@@ -8,11 +8,11 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface MocoButton {
         /**
-          * style of the button (dark) or not
+          * dark style
          */
         "dark": boolean;
         /**
-          * button disabled or not
+          * disabled
          */
         "disabled": boolean;
         /**
@@ -154,11 +154,11 @@ declare global {
 declare namespace LocalJSX {
     interface MocoButton {
         /**
-          * style of the button (dark) or not
+          * dark style
          */
         "dark"?: boolean;
         /**
-          * button disabled or not
+          * disabled
          */
         "disabled"?: boolean;
         /**

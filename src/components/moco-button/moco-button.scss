@@ -2,10 +2,49 @@
 @import '../../scss/variables';
 @import '../../scss/shadows';
 
+:host([dark]) {
+  ::slotted(svg) {
+    fill: $color-svg-dark;
+  }
+
+  .moco-button {
+    background-color: $color-background-dark;
+    color: $color-text-dark;
+
+    &:focus,
+    &:hover:enabled {
+      @include shadow-md;
+      background-color: $color-background-dark-focused;
+    }
+
+    &:disabled {
+      background-color: $color-background-disabled;
+      color: $color-text-disabled;
+      cursor: default;
+    }
+  }
+}
+
+.moco-button:disabled ::slotted(svg) {
+  fill: $color-text-disabled;
+}
+
+::slotted(svg) {
+  fill: $color-svg-light;
+  width: $default-svg-size;
+  height: $default-svg-size;
+}
+
 .moco-button {
+  display: flex;
+  align-items: center;
+  gap: $default-gap;
+
+  padding: 0 1.25rem;
+  height: $default-input-control-height;
+
   border: none;
   border-radius: $default-border-radius;
-  padding: 0.75rem 1.25rem;
   background-color: $color-background-light;
   color: $color-text-light;
   text-transform: uppercase;
@@ -29,21 +68,5 @@
     background-color: $color-background-disabled;
     color: $color-text-disabled;
     cursor: default;
-  }
-
-  &-dark {
-    @extend .moco-button;
-    background-color: $color-background-dark;
-    color: $color-text-dark;
-
-    &:focus,
-    &:hover:enabled {
-      @include shadow-md;
-      background-color: $color-background-dark-focused;
-    }
-
-    &:active:enabled {
-      @include shadow-sm;
-    }
   }
 }

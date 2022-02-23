@@ -65,6 +65,10 @@ export namespace Components {
           * field label text
          */
         "label": string;
+        /**
+          * placeholder text
+         */
+        "placeholder": string;
     }
     interface MocoSelectOption {
         /**
@@ -221,6 +225,10 @@ declare namespace LocalJSX {
           * selected value changed
          */
         "onSelectedValueChanged"?: (event: CustomEvent<string>) => void;
+        /**
+          * placeholder text
+         */
+        "placeholder"?: string;
     }
     interface MocoSelectOption {
         /**

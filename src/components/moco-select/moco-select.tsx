@@ -10,6 +10,8 @@ export class MocoSelect {
   @State() isOpen: boolean = false;
   @State() selectedItemValue: string | undefined;
   @State() isOnClick: boolean = false;
+  /** placeholder text */
+  @Prop() placeholder: string;
   /** field label text */
   @Prop() label: string;
   /** style of the button (dark) or not */
@@ -59,7 +61,7 @@ export class MocoSelect {
       this._updateSelectedElement();
     } else {
       const selectElementPlaceHolder = document.createElement('span');
-      selectElementPlaceHolder.innerText = "Select an item...";
+      selectElementPlaceHolder.innerText = this.placeholder ? this.placeholder : "Select...";
       selectElementPlaceHolder.setAttribute('slot', 'selected-value');
       this.element.appendChild(selectElementPlaceHolder);
     }

@@ -3,87 +3,67 @@
 @import '../../scss/shadows';
 @import '../../scss/after-label';
 
-@mixin inputStyle($isDark) {
-  border-radius: $default-border-radius;
-  transition: all 0.3s ease-in;
+:host([dark]) {
+  ::slotted(svg) {
+    fill: $color-svg-dark;
+  }
 
-  @if ($isDark) == dark {
+  .moco-input-box {
     border: 1px solid $color-border-dark;
     background-color: $color-background-dark;
     color: $color-text-dark;
-  } @else {
-    border: 1px solid $color-border-light;
-    background-color: $color-background-light;
-    color: $color-text-light;
-  }
-}
 
-@mixin spotted-span {
-  font-size: 0.8rem;
-  letter-spacing: 1px;
-  text-transform: lowercase;
-}
-
-:host([error]) .moco-input-box,
-:host([error]) .moco-input-box-label {
-  border: 1px solid $color-error;
-}
-
-:host([error]) .moco-input-box::after,
-:host([error]) .moco-input-box-label::after {
-  background-color: $color-error;
-  color: $mui-red-50;
-}
-
-:host([dark]) {
-  ::slotted(svg) {
-    fill: $mui-grey-200;
-  }
-
-  ::slotted(span) {
-    color: $color-text-dark;
-    @include spotted-span();
+    &:focus,
+    &:focus-within {
+      border: 1px solid $color-border-dark-focused;
+      background-color: $color-background-dark-focused;
+      @include shadow-sm;
+    }
   }
 }
 
 :host([disabled]) {
-  .moco-input-box {
-    background-color: $color-background-disabled;
-    color: $color-text-disabled;
-    border: 1px solid $color-background-disabled;
-  }
-
-  .moco-input-box-label::after {
-    background-color: $color-background-disabled;
-    color: $color-text-disabled;
+  ::slotted(svg) {
+    fill: $color-text-disabled;
   }
 
   ::slotted(*) {
+    color: $color-text-disabled;
+  }
+  
+  .moco-input-box {
+    border: 1px solid $color-background-disabled;
     background-color: $color-background-disabled;
     color: $color-text-disabled;
-    fill: $color-text-disabled;
+  
+    &:focus,
+    &:focus-within {
+      color: $color-text-disabled;
+      border: 1px solid $color-background-disabled;
+      background-color: $color-background-disabled;
+      box-shadow: 0 0 0 transparent;
+    }
+
+    & > input {
+      color: $color-text-disabled;
+
+      &::placeholder {
+        color: $color-text-disabled;
+      }
+    }
   }
 }
 
 ::slotted(*) {
-  padding: {
-    left: .75rem;
-    right: 0;
-    top: 0;
-    bottom: 0;
-  }
+  color: $color-text-placeholder;
+  padding-left: .5rem;
   margin-right: -.5rem;
 }
 
 ::slotted(svg) {
-  fill: $mui-grey-600;
-  width: 20px;
-  height: 20px;
-}
-
-::slotted(span) {
-  color: $color-text-light;
-  @include spotted-span();
+  fill: $color-svg-light;
+  width: $default-svg-size;
+  height: $default-svg-size;
 }
 
 .moco-input-box {
@@ -91,10 +71,22 @@
   align-items: center;
 
   font-family: inherit;
+  letter-spacing: 1px;
   position: relative;
-  @include inputStyle(light);
   height: $default-control-height;
 
+  border: 1px solid $color-border-light;
+  border-radius: $default-border-radius;
+  background-color: $color-background-light;
+  color: $color-text-light;
+
+  transition: all .3s;
+
+  &::placeholder {
+    color: $color-text-placeholder;
+  }
+
+  &:focus,
   &:focus-within {
     border: 1px solid $color-border-light-focused;
     background-color: $color-background-light-focused;
@@ -116,67 +108,8 @@
     letter-spacing: 1px;
     color: inherit;
 
-    caret-color: $mui-grey-700;
-
     &::placeholder {
-      color: $mui-grey-500;
+      color: $color-text-placeholder;
     }
   }
-
-  &-dark {
-    @extend .moco-input-box;
-    @include inputStyle(dark);
-
-    &:focus-within {
-      border: 1px solid $color-border-dark-focused;
-      background-color: $color-background-dark-focused;
-      @include shadow-sm;
-    }
-
-    & > input {
-      caret-color: $mui-grey-200;
-    }
-  }
-}
-
-.moco-input-box-label {
-  @extend .moco-input-box;
-
-  & > input::placeholder {
-    color: $mui-grey-400;
-  }
-
-  &::after {
-    @include afterLabel;
-  }
-
-  &:focus-within::after {
-    background-color: $color-background-light-focused;
-    left: 1rem;
-  }
-
-  &-dark {
-    @extend .moco-input-box-label;
-    @include inputStyle(dark);
-
-    &::after {
-      background-color: $color-background-dark;
-    }
-
-    &:focus-within {
-      background-color: $color-background-dark-focused;
-    }
-
-    &:focus-within::after {
-      background-color: $color-background-dark-focused;
-    }
-
-    & > input {
-      caret-color: $mui-grey-200;
-    }
-  }
-}
-
-.moco-input-error {
-  border: 1px solid $mui-red-A400;
 }

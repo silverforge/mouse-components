@@ -8,8 +8,6 @@ import { h, Component, Prop, EventEmitter, Event } from "@stencil/core";
 export class MocoInputText {
   /** placeholder text */
   @Prop() placeholder: string;
-  /** field label text */
-  @Prop() label: string;
   /** style of the button (dark) or not */
   @Prop() dark: boolean;
   /** disabled */
@@ -34,23 +32,9 @@ export class MocoInputText {
   }
 
   render() {
-    let inputClass = "moco-input-box";
-    if (this.dark) {
-      inputClass = "moco-input-box-dark";
-    }
-    if (this.label) {
-      inputClass = "moco-input-box-label";
-      if (this.dark) {
-        inputClass = "moco-input-box-label-dark";
-      }
-    }
-
     return (
-      <div 
-          class={inputClass} 
-          data-label-text={this.label} 
-          data-dark={this.dark ? "true" : "false"}>
-        <slot></slot>
+      <div class="moco-input-box">
+        <slot name="decal"></slot>
         <input 
             type="text" 
             disabled={this.disabled}

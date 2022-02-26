@@ -34,10 +34,6 @@ export namespace Components {
          */
         "error": boolean;
         /**
-          * field label text
-         */
-        "label": string;
-        /**
           * placeholder text
          */
         "placeholder": string;
@@ -183,10 +179,6 @@ declare namespace LocalJSX {
           * is error or not
          */
         "error"?: boolean;
-        /**
-          * field label text
-         */
-        "label"?: string;
         /**
           * emits the value of input plus updates the value of the component
          */

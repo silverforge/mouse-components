@@ -36,6 +36,19 @@
   }
 }
 
+:host([error]) {
+  .container {
+    &:focus .control,
+    &:focus-within .control {
+      border: 1px solid $color-error;
+    }
+  }
+
+  .control {
+    border: 1px solid $color-error;
+  }
+}
+
 ::slotted(*[slot='decal']) {
   padding: {
     left: 0.75rem;

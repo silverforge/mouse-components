@@ -6,17 +6,10 @@ import { h, Component, Prop, Event, EventEmitter } from "@stencil/core";
   shadow: true
 })
 export class MocoButton {
-  /** value */
   @Prop() value: string = "moco-button";
-  /** dark style */
   @Prop() dark: boolean;
-  /** disabled  */
   @Prop() disabled: boolean;
 
-  /** 
-   * event emitted on every button click,
-   * emitting the value of the button
-   * */
   @Event({
     eventName: 'clicked',
     bubbles: false,

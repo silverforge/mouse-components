@@ -7,85 +7,31 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface MocoButton {
-        /**
-          * dark style
-         */
         "dark": boolean;
-        /**
-          * disabled
-         */
         "disabled": boolean;
-        /**
-          * value
-         */
         "value": string;
     }
     interface MocoInputText {
-        /**
-          * style of the button (dark) or not
-         */
         "dark": boolean;
-        /**
-          * disabled
-         */
         "disabled": boolean;
-        /**
-          * is error or not
-         */
         "error": boolean;
-        /**
-          * placeholder text
-         */
         "placeholder": string;
-        /**
-          * value of the input field,  updated on input change
-         */
         "value": string;
     }
     interface MocoLoader {
-        /**
-          * style of the button (dark) or not
-         */
         "dark": boolean;
-        /**
-          * transparent background
-         */
         "transparent": boolean;
     }
     interface MocoSelect {
-        /**
-          * style of the button (dark) or not
-         */
         "dark": boolean;
-        /**
-          * disabled
-         */
         "disabled": boolean;
-        /**
-          * error
-         */
         "error": boolean;
-        /**
-          * placeholder text
-         */
         "placeholder": string;
     }
     interface MocoSelectOption {
-        /**
-          * style of the button (dark) or not
-         */
         "dark": boolean;
-        /**
-          * no clicks allowed
-         */
         "noClick": boolean;
-        /**
-          * is selected
-         */
         "selected": boolean;
-        /**
-          * value
-         */
         "value": string;
     }
     interface MocoSwitch {
@@ -151,105 +97,36 @@ declare global {
 }
 declare namespace LocalJSX {
     interface MocoButton {
-        /**
-          * dark style
-         */
         "dark"?: boolean;
-        /**
-          * disabled
-         */
         "disabled"?: boolean;
-        /**
-          * event emitted on every button click, emitting the value of the button
-         */
         "onClicked"?: (event: CustomEvent<string>) => void;
-        /**
-          * value
-         */
         "value"?: string;
     }
     interface MocoInputText {
-        /**
-          * style of the button (dark) or not
-         */
         "dark"?: boolean;
-        /**
-          * disabled
-         */
         "disabled"?: boolean;
-        /**
-          * is error or not
-         */
         "error"?: boolean;
-        /**
-          * emits the value of input plus updates the value of the component
-         */
         "onInputchange"?: (event: CustomEvent<string>) => void;
-        /**
-          * placeholder text
-         */
         "placeholder"?: string;
-        /**
-          * value of the input field,  updated on input change
-         */
         "value"?: string;
     }
     interface MocoLoader {
-        /**
-          * style of the button (dark) or not
-         */
         "dark"?: boolean;
-        /**
-          * transparent background
-         */
         "transparent"?: boolean;
     }
     interface MocoSelect {
-        /**
-          * style of the button (dark) or not
-         */
         "dark"?: boolean;
-        /**
-          * disabled
-         */
         "disabled"?: boolean;
-        /**
-          * error
-         */
         "error"?: boolean;
-        /**
-          * popver opened
-         */
         "onOpened"?: (event: CustomEvent<boolean>) => void;
-        /**
-          * selected value changed
-         */
         "onSelectedValueChanged"?: (event: CustomEvent<string>) => void;
-        /**
-          * placeholder text
-         */
         "placeholder"?: string;
     }
     interface MocoSelectOption {
-        /**
-          * style of the button (dark) or not
-         */
         "dark"?: boolean;
-        /**
-          * no clicks allowed
-         */
         "noClick"?: boolean;
-        /**
-          * option selected click
-         */
         "onOptionSelected"?: (event: CustomEvent<string>) => void;
-        /**
-          * is selected
-         */
         "selected"?: boolean;
-        /**
-          * value
-         */
         "value"?: string;
     }
     interface MocoSwitch {

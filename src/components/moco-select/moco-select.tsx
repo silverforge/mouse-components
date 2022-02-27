@@ -10,22 +10,18 @@ export class MocoSelect {
   @State() isOpen: boolean = false;
   @State() selectedItemValue: string | undefined;
   @State() isOnClick: boolean = false;
-  /** placeholder text */
+
   @Prop() placeholder: string;
-  /** style of the button (dark) or not */
   @Prop() dark: boolean;
-  /** disabled */
   @Prop() disabled: boolean = false;
-  /** error */
   @Prop() error: boolean = false;
 
-  /** popver opened */
   @Event({
     eventName: 'opened',
     bubbles: false,
     composed: true
   }) opened: EventEmitter<boolean>;
-  /** selected value changed */
+  
   @Event({
     eventName: 'selectedValueChanged',
     bubbles: false,

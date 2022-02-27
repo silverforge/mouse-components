@@ -13,9 +13,7 @@ import { h, Component, Prop } from "@stencil/core";
   shadow: true
 })
 export class MocoLoader {
-  /** style of the button (dark) or not */
   @Prop() dark: boolean;
-  /** transparent background */
   @Prop() transparent: boolean;
 
   render() {

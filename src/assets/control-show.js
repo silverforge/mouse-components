@@ -2,10 +2,10 @@ const myFunction = value => {
   console.log(value);
 };
 
-// const almaCompot = document.getElementById('alma');
-// almaCompot.addEventListener('inputchange', e => {
-//   myFunction(e.detail);
-// });
+const almaCompot = document.getElementById('alma');
+almaCompot.addEventListener('inputchange', e => {
+  myFunction(e.detail);
+});
 
 // setInterval(() => {
 //   if (almaCompot) {

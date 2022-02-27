@@ -57,7 +57,13 @@ export namespace Components {
           * style of the button (dark) or not
          */
         "dark": boolean;
+        /**
+          * disabled
+         */
         "disabled": boolean;
+        /**
+          * error
+         */
         "error": boolean;
         /**
           * placeholder text
@@ -203,7 +209,13 @@ declare namespace LocalJSX {
           * style of the button (dark) or not
          */
         "dark"?: boolean;
+        /**
+          * disabled
+         */
         "disabled"?: boolean;
+        /**
+          * error
+         */
         "error"?: boolean;
         /**
           * popver opened

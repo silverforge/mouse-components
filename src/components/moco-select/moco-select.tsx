@@ -14,10 +14,9 @@ export class MocoSelect {
   @Prop() placeholder: string;
   /** style of the button (dark) or not */
   @Prop() dark: boolean;
-
-
+  /** disabled */
   @Prop() disabled: boolean = false;
-
+  /** error */
   @Prop() error: boolean = false;
 
   /** popver opened */

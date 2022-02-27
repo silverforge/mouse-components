@@ -25,10 +25,7 @@ export class MocoSelectOption {
   }
 
   render() {
-    let optionClass = (this.selected) ? "option-selected" : "option";
-    if (this.dark) {
-      optionClass += "-dark";
-    }
+    const optionClass = (this.selected) ? "option-selected" : "option";
 
     return (
       <div class={optionClass} onClick={this.onClick.bind(this)}>

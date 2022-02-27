@@ -2,6 +2,20 @@
 @import '../../scss/variables';
 @import '../../scss/shadows';
 
+:host([dark]) {
+  .option {
+    &::after {
+      background-color: $color-highlight-dark;
+    }
+  }
+
+  .option-selected {
+    &::after {
+      background-color: $color-selected-dark;
+    }
+  }
+}
+
 .option {
   padding: .75rem;
   transition: all .3s ease-out;
@@ -16,22 +30,14 @@
     top: 0;
     left: -100%;
     width: 100%;
-    height: 2.5rem;
-    background-color: $mui-grey-300;
+    height: 100%;
+    background-color: $color-highlight-light;
     z-index: -1;
     transition: all .3s ease-out;
   }
 
   &:hover::after {
     left: 0;
-  }
-
-  &-dark {
-    @extend .option;
-
-    &::after {
-      background-color: $mui-grey-500;
-    }
   }
 }
 
@@ -40,15 +46,7 @@
   color: $color-text-dark;
 
   &::after {
-    background-color: $mui-grey-500;
+    background-color: $color-selected-light;
     left: 0;
-  }
-
-  &-dark {
-    @extend .option-selected;
-
-    &::after {
-      background-color: $mui-grey-800;
-    }
   }
 }

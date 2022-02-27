@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property      | Attribute     | Description                       | Type      | Default     |
-| ------------- | ------------- | --------------------------------- | --------- | ----------- |
-| `dark`        | `dark`        | style of the button (dark) or not | `boolean` | `undefined` |
-| `transparent` | `transparent` | transparent background            | `boolean` | `undefined` |
+| Property      | Attribute     | Description | Type      | Default     |
+| ------------- | ------------- | ----------- | --------- | ----------- |
+| `dark`        | `dark`        |             | `boolean` | `undefined` |
+| `transparent` | `transparent` |             | `boolean` | `undefined` |
 
 
 ----------------------------------------------

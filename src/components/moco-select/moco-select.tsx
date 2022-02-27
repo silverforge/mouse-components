@@ -12,8 +12,6 @@ export class MocoSelect {
   @State() isOnClick: boolean = false;
   /** placeholder text */
   @Prop() placeholder: string;
-  /** field label text */
-  @Prop() label: string;
   /** style of the button (dark) or not */
   @Prop() dark: boolean;
 
@@ -124,21 +122,12 @@ export class MocoSelect {
   }
 
   render() {
-    let containerClass = (this.label) ? "container-label" : "container";
-    let controlClass = "control";
-    let carouselClass = (this.isOpen) ? "carousel-icons-up" : "carousel-icons-down";
-    let popoverClass = (this.isOpen) ? "popover-open" : "popover";
-
-    if (this.dark) {
-      containerClass += "-dark";
-      controlClass += "-dark";
-      carouselClass += "-dark";
-      popoverClass += "-dark";
-    }
+    const carouselClass = (this.isOpen) ? "carousel-icons-up" : "carousel-icons-down";
+    const popoverClass = (this.isOpen) ? "popover-open" : "popover";
 
     return (
-      <div class={containerClass} tabindex={0} data-label-text={this.label}>
-        <div class={controlClass} onClick={this.onClick.bind(this)}>
+      <div class="container" tabindex={(this.disabled) ? -1 : 0}>
+        <div class="control" onClick={this.onClick.bind(this)}>
           <slot name="decal"></slot>
           <div class="selected-element">
             <slot name="selected-value"></slot>

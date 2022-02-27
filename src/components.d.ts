@@ -60,10 +60,6 @@ export namespace Components {
         "disabled": boolean;
         "error": boolean;
         /**
-          * field label text
-         */
-        "label": string;
-        /**
           * placeholder text
          */
         "placeholder": string;
@@ -209,10 +205,6 @@ declare namespace LocalJSX {
         "dark"?: boolean;
         "disabled"?: boolean;
         "error"?: boolean;
-        /**
-          * field label text
-         */
-        "label"?: string;
         /**
           * popver opened
          */

@@ -2,7 +2,7 @@ import { h, Component, Prop, EventEmitter, Event } from "@stencil/core";
 
 @Component({
   tag: 'moco-input-text',
-  styleUrl: 'moco-input-text.scss',
+  styleUrl: '../moco-input.scss',
   shadow: true
 })
 export class MocoInputText {
@@ -27,12 +27,12 @@ export class MocoInputText {
     return (
       <div class="moco-input-box">
         <slot name="decal"></slot>
-        <input 
-            type="text" 
-            disabled={this.disabled}
-            placeholder={this.placeholder} 
-            value={this.value} 
-            onInput={this.onInputChange.bind(this)} />
+        <input
+          type="text"
+          disabled={this.disabled}
+          placeholder={this.placeholder}
+          value={this.value}
+          onInput={this.onInputChange.bind(this)} />
       </div>
     );
   }

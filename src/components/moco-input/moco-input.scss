@@ -20,6 +20,14 @@
       @include shadow-sm;
     }
   }
+
+  .number-spinner-box {
+    background-color: $color-background-dark;
+
+    & svg {
+      fill: $color-svg-dark;
+    }
+  }
 }
 
 :host([disabled]) {
@@ -30,12 +38,12 @@
   ::slotted(*) {
     color: $color-text-disabled;
   }
-  
+
   .moco-input-box {
     border: 1px solid $color-background-disabled;
     background-color: $color-background-disabled;
     color: $color-text-disabled;
-  
+
     &:focus,
     &:focus-within {
       color: $color-text-disabled;
@@ -52,12 +60,20 @@
       }
     }
   }
+
+  .number-spinner-box {
+    background-color: $color-background-disabled;
+
+    & svg {
+      fill: $color-text-disabled;
+    }
+  }
 }
 
 ::slotted(*) {
   color: $color-text-placeholder;
-  padding-left: .5rem;
-  margin-right: -.5rem;
+  padding-left: 0.5rem;
+  margin-right: -0.5rem;
 }
 
 ::slotted(svg) {
@@ -80,7 +96,8 @@
   background-color: $color-background-light;
   color: $color-text-light;
 
-  transition: all .3s;
+  transition: all 0.3s;
+  overflow: hidden;
 
   &::placeholder {
     color: $color-text-placeholder;
@@ -98,6 +115,8 @@
     border: none;
 
     background-color: transparent;
+    appearance: textfield;
+    -webkit-appearance: textfield;
 
     padding: 1rem;
     width: 100%;
@@ -111,5 +130,38 @@
     &::placeholder {
       color: $color-text-placeholder;
     }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      display: none;
+    }
+  }
+}
+
+.number-spinner-box {
+  background-color: $color-background-light;
+  display: flex;
+  flex-direction: column;
+  width: 2rem;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  outline: none;
+
+  & svg {
+    fill: $color-svg-light;
+    min-width: 100%;
+    min-height: $default-svg-size;
+    width: 100%;
+    height: $default-svg-size;
+
+    cursor: pointer;
+    outline: none;
   }
 }

@@ -7,10 +7,11 @@
 
 ## Properties
 
-| Property  | Attribute | Description | Type      | Default     |
-| --------- | --------- | ----------- | --------- | ----------- |
-| `checked` | `checked` |             | `boolean` | `undefined` |
-| `dark`    | `dark`    |             | `boolean` | `undefined` |
+| Property   | Attribute  | Description | Type      | Default     |
+| ---------- | ---------- | ----------- | --------- | ----------- |
+| `checked`  | `checked`  |             | `boolean` | `undefined` |
+| `dark`     | `dark`     |             | `boolean` | `undefined` |
+| `disabled` | `disabled` |             | `boolean` | `undefined` |
 
 
 ## Events

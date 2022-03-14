@@ -14,6 +14,7 @@ export namespace Components {
     interface MocoCheckbox {
         "checked": boolean;
         "dark": boolean;
+        "disabled": boolean;
     }
     interface MocoInputText {
         "dark": boolean;
@@ -107,6 +108,7 @@ declare namespace LocalJSX {
     interface MocoCheckbox {
         "checked"?: boolean;
         "dark"?: boolean;
+        "disabled"?: boolean;
         "onChanged"?: (event: CustomEvent<boolean>) => void;
     }
     interface MocoInputText {

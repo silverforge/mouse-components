@@ -7,6 +7,7 @@ import { h, Component, Prop, Event, EventEmitter } from "@stencil/core";
 })
 export class MocoCheckbox {
   @Prop() dark: boolean;
+  @Prop() disabled: boolean;
   @Prop({ reflect: true, mutable: true }) checked: boolean;
   @Event({
     eventName: 'changed',
@@ -15,22 +16,22 @@ export class MocoCheckbox {
   }) onChange: EventEmitter<boolean>;
 
   onClick() {
-    this.checked = !this.checked;
-    this.onChange.emit(this.checked);
+    if (!this.disabled) {
+      this.checked = !this.checked;
+      this.onChange.emit(this.checked);
+    }
   }
 
   render() {
     return (
-      <div class="moco-checkbox-box" tabIndex={0} onClick={this.onClick.bind(this)}>
-
-        {(this.checked) 
+      <div class="moco-checkbox-box" tabIndex={(this.disabled) ? -1 : 0} onClick={this.onClick.bind(this)}>
+        {(this.checked)
           ? (
             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24" viewBox="0 0 24 24">
               <path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z" />
             </svg>
           )
-          : null }
-
+          : null}
       </div>
     );
   }

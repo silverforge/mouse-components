@@ -28,7 +28,7 @@ export class MocoSelect {
     composed: true,
   }) selectedValueChanged: EventEmitter<string>;
 
-  @Listen('optionSelected')
+  @Listen('selected')
   optionSelected(event: CustomEvent<string>) {
     this.selectedItemValue = event.detail;
     this.selectedValueChanged.emit(event.detail);

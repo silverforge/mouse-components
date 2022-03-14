@@ -23,14 +23,11 @@ export class MocoRadiobutton {
   }
 
   render() {
+    const innerCircleClass = ["moco-radiobutton-box-circle", (this.checked) ? "extend" : "shrink"].join(" ");
+
     return (
       <div class="moco-radiobutton-box" tabIndex={(this.disabled) ? -1 :0 } onClick={this.onClick.bind(this)}>
-        {(this.checked)
-          ? (
-            <div class="moco-radiobutton-box-circle"></div>
-          )
-          : null
-        }
+        <div class={innerCircleClass}></div>
       </div>
     );
   }

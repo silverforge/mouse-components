@@ -50,3 +50,8 @@ const myCheckBox = document.getElementById('my-moco-checkbox');
 myCheckBox.addEventListener('changed', (e) => {
   console.log(e.detail);
 });
+
+const myRadioButton = document.getElementById('my-moco-radiobutton');
+myRadioButton.addEventListener('changed', (e) => {
+  console.log(e.detail);
+});

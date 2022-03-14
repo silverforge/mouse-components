@@ -3,6 +3,8 @@
 @import '../../scss/variables';
 @import '../../scss/shadows';
 
+$box-size: math.div($default-control-height, 2);
+
 :host([dark]) {
   .moco-radiobutton-box {
     border: 1px solid $color-border-dark;
@@ -40,8 +42,6 @@
 }
 
 .moco-radiobutton-box {
-  $box-size: math.div($default-control-height, 2);
-
   min-width: $box-size;
   min-height: $box-size;
   width: $box-size;
@@ -67,14 +67,24 @@
   }
 
   &-circle {
-    $circle-size: $box-size * 0.6;
-
-    min-width: $circle-size;
-    min-height: $circle-size;
-    width: $circle-size;
-    height: $circle-size;
-
     border-radius: 100%;
     background-color: $color-background-dark;
+    transition: all .3s;
   }
+}
+
+.extend {
+  $size: $box-size * 0.6;
+  min-width: $size;
+  min-height: $size;
+  width: $size;
+  height: $size;
+}
+
+.shrink {
+  $size: 0;
+  min-width: $size;
+  min-height: $size;
+  width: $size;
+  height: $size;
 }

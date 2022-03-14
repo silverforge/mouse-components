@@ -3,6 +3,8 @@
 @import '../../scss/variables';
 @import '../../scss/shadows';
 
+$box-size: math.div($default-control-height, 2);
+
 :host([dark]) {
   .moco-checkbox-box {
     border: 1px solid $color-border-dark;
@@ -39,8 +41,6 @@
 }
 
 .moco-checkbox-box {
-  $box-size: math.div($default-control-height, 2);
-
   min-width: $box-size;
   min-height: $box-size;
   width: $box-size;
@@ -67,7 +67,26 @@
 
   & > svg {
     fill: $color-svg-light;
-    width: $box-size * 0.8;
-    height: $box-size * 0.8;
+    transition: all .3s;
+  }
+}
+
+.extend {
+  & > svg {
+    $size: $box-size * 0.8;
+    min-width: $size;
+    min-height: $size;
+    width: $size;
+    height: $size;
+  }
+}
+
+.shrink {
+  & > svg {
+    $size: 0;
+    min-width: $size;
+    min-height: $size;
+    width: $size;
+    height: $size;
   }
 }

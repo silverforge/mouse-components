@@ -23,8 +23,6 @@
   }
 
   .input-end-box {
-    background-color: $color-background-dark;
-
     & svg {
       fill: $color-svg-dark;
     }
@@ -69,8 +67,6 @@
   }
 
   .input-end-box {
-    background-color: $color-background-disabled;
-
     & svg {
       fill: $color-text-disabled;
     }
@@ -163,7 +159,7 @@
 }
 
 .input-end-box {
-  background-color: $color-background-light;
+  background-color: transparent;
   display: flex;
   flex-direction: column;
   width: 2.4rem;

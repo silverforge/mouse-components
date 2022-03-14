@@ -4,41 +4,42 @@
 @import '../../scss/shadows';
 
 :host([dark]) {
-  .moco-checkbox-box {
+  .moco-radiobutton-box {
     border: 1px solid $color-border-dark;
     background-color: $color-background-dark;
 
     &:focus,
     &:focus-within {
-      background-color: $color-background-dark-focused;
       border: 1px solid $color-border-dark-focused;
+      background-color: $color-background-dark-focused;
+      @include shadow-sm;
     }
 
-    & > svg {
-      fill: $color-svg-dark;
+    &-circle {
+      background-color: $color-background-light;
     }
   }
 }
 
 :host([disabled]) {
-  .moco-checkbox-box {
+  .moco-radiobutton-box {
     border: 1px solid $color-background-disabled;
     background-color: $color-background-disabled;
 
     &:focus,
     &:focus-within {
-      background-color: $color-background-disabled;
       border: 1px solid $color-background-disabled;
+      background-color: $color-background-disabled;
       box-shadow: 0 0 0 transparent;
     }
 
-    & > svg {
-      fill: $color-text-disabled;
+    &-circle {
+      background-color: $color-text-disabled;
     }
   }
 }
 
-.moco-checkbox-box {
+.moco-radiobutton-box {
   $box-size: math.div($default-control-height, 2);
 
   min-width: $box-size;
@@ -46,7 +47,7 @@
   width: $box-size;
   height: $box-size;
 
-  border-radius: $default-border-radius;
+  border-radius: 100%;
   border: 1px solid $color-border-light;
   background-color: $color-background-light;
 
@@ -60,14 +61,20 @@
 
   &:focus,
   &:focus-within {
-    background-color: $color-background-light-focused;
     border: 1px solid $color-border-light-focused;
+    background-color: $color-background-light-focused;
     @include shadow-sm;
   }
 
-  & > svg {
-    fill: $color-svg-light;
-    width: $box-size * 0.8;
-    height: $box-size * 0.8;
+  &-circle {
+    $circle-size: $box-size * 0.6;
+
+    min-width: $circle-size;
+    min-height: $circle-size;
+    width: $circle-size;
+    height: $circle-size;
+
+    border-radius: 100%;
+    background-color: $color-background-dark;
   }
 }

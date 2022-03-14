@@ -27,6 +27,11 @@ export namespace Components {
         "dark": boolean;
         "transparent": boolean;
     }
+    interface MocoRadiobutton {
+        "checked": boolean;
+        "dark": boolean;
+        "disabled": boolean;
+    }
     interface MocoSelect {
         "dark": boolean;
         "disabled": boolean;
@@ -70,6 +75,12 @@ declare global {
         prototype: HTMLMocoLoaderElement;
         new (): HTMLMocoLoaderElement;
     };
+    interface HTMLMocoRadiobuttonElement extends Components.MocoRadiobutton, HTMLStencilElement {
+    }
+    var HTMLMocoRadiobuttonElement: {
+        prototype: HTMLMocoRadiobuttonElement;
+        new (): HTMLMocoRadiobuttonElement;
+    };
     interface HTMLMocoSelectElement extends Components.MocoSelect, HTMLStencilElement {
     }
     var HTMLMocoSelectElement: {
@@ -93,6 +104,7 @@ declare global {
         "moco-checkbox": HTMLMocoCheckboxElement;
         "moco-input-text": HTMLMocoInputTextElement;
         "moco-loader": HTMLMocoLoaderElement;
+        "moco-radiobutton": HTMLMocoRadiobuttonElement;
         "moco-select": HTMLMocoSelectElement;
         "moco-select-option": HTMLMocoSelectOptionElement;
         "moco-switch": HTMLMocoSwitchElement;
@@ -123,6 +135,12 @@ declare namespace LocalJSX {
         "dark"?: boolean;
         "transparent"?: boolean;
     }
+    interface MocoRadiobutton {
+        "checked"?: boolean;
+        "dark"?: boolean;
+        "disabled"?: boolean;
+        "onChanged"?: (event: CustomEvent<boolean>) => void;
+    }
     interface MocoSelect {
         "dark"?: boolean;
         "disabled"?: boolean;
@@ -149,6 +167,7 @@ declare namespace LocalJSX {
         "moco-checkbox": MocoCheckbox;
         "moco-input-text": MocoInputText;
         "moco-loader": MocoLoader;
+        "moco-radiobutton": MocoRadiobutton;
         "moco-select": MocoSelect;
         "moco-select-option": MocoSelectOption;
         "moco-switch": MocoSwitch;
@@ -162,6 +181,7 @@ declare module "@stencil/core" {
             "moco-checkbox": LocalJSX.MocoCheckbox & JSXBase.HTMLAttributes<HTMLMocoCheckboxElement>;
             "moco-input-text": LocalJSX.MocoInputText & JSXBase.HTMLAttributes<HTMLMocoInputTextElement>;
             "moco-loader": LocalJSX.MocoLoader & JSXBase.HTMLAttributes<HTMLMocoLoaderElement>;
+            "moco-radiobutton": LocalJSX.MocoRadiobutton & JSXBase.HTMLAttributes<HTMLMocoRadiobuttonElement>;
             "moco-select": LocalJSX.MocoSelect & JSXBase.HTMLAttributes<HTMLMocoSelectElement>;
             "moco-select-option": LocalJSX.MocoSelectOption & JSXBase.HTMLAttributes<HTMLMocoSelectOptionElement>;
             "moco-switch": LocalJSX.MocoSwitch & JSXBase.HTMLAttributes<HTMLMocoSwitchElement>;

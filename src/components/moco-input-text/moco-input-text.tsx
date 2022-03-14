@@ -2,7 +2,7 @@ import { h, Component, Prop, EventEmitter, Event } from "@stencil/core";
 
 @Component({
   tag: 'moco-input-text',
-  styleUrl: 'moco-input.scss',
+  styleUrl: 'moco-input-text.scss',
   shadow: true
 })
 export class MocoInputText {

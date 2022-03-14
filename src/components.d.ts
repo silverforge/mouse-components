@@ -11,6 +11,10 @@ export namespace Components {
         "disabled": boolean;
         "value": string;
     }
+    interface MocoCheckbox {
+        "checked": boolean;
+        "dark": boolean;
+    }
     interface MocoInputText {
         "dark": boolean;
         "disabled": boolean;
@@ -35,17 +39,8 @@ export namespace Components {
         "value": string;
     }
     interface MocoSwitch {
-        /**
-          * checked or not
-         */
         "checked": boolean;
-        /**
-          * style of the button (dark) or not
-         */
         "dark": boolean;
-        /**
-          * switch disabled or not
-         */
         "disabled": boolean;
     }
 }
@@ -55,6 +50,12 @@ declare global {
     var HTMLMocoButtonElement: {
         prototype: HTMLMocoButtonElement;
         new (): HTMLMocoButtonElement;
+    };
+    interface HTMLMocoCheckboxElement extends Components.MocoCheckbox, HTMLStencilElement {
+    }
+    var HTMLMocoCheckboxElement: {
+        prototype: HTMLMocoCheckboxElement;
+        new (): HTMLMocoCheckboxElement;
     };
     interface HTMLMocoInputTextElement extends Components.MocoInputText, HTMLStencilElement {
     }
@@ -88,6 +89,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "moco-button": HTMLMocoButtonElement;
+        "moco-checkbox": HTMLMocoCheckboxElement;
         "moco-input-text": HTMLMocoInputTextElement;
         "moco-loader": HTMLMocoLoaderElement;
         "moco-select": HTMLMocoSelectElement;
@@ -102,11 +104,16 @@ declare namespace LocalJSX {
         "onClicked"?: (event: CustomEvent<string>) => void;
         "value"?: string;
     }
+    interface MocoCheckbox {
+        "checked"?: boolean;
+        "dark"?: boolean;
+        "onChanged"?: (event: CustomEvent<boolean>) => void;
+    }
     interface MocoInputText {
         "dark"?: boolean;
         "disabled"?: boolean;
         "error"?: boolean;
-        "onInputchange"?: (event: CustomEvent<string>) => void;
+        "onChanged"?: (event: CustomEvent<string>) => void;
         "placeholder"?: string;
         "value"?: string;
     }
@@ -118,37 +125,26 @@ declare namespace LocalJSX {
         "dark"?: boolean;
         "disabled"?: boolean;
         "error"?: boolean;
+        "onChanged"?: (event: CustomEvent<string>) => void;
         "onOpened"?: (event: CustomEvent<boolean>) => void;
-        "onSelectedValueChanged"?: (event: CustomEvent<string>) => void;
         "placeholder"?: string;
     }
     interface MocoSelectOption {
         "dark"?: boolean;
         "noClick"?: boolean;
-        "onOptionSelected"?: (event: CustomEvent<string>) => void;
+        "onSelected"?: (event: CustomEvent<string>) => void;
         "selected"?: boolean;
         "value"?: string;
     }
     interface MocoSwitch {
-        /**
-          * checked or not
-         */
         "checked"?: boolean;
-        /**
-          * style of the button (dark) or not
-         */
         "dark"?: boolean;
-        /**
-          * switch disabled or not
-         */
         "disabled"?: boolean;
-        /**
-          * emits the state of switch (checked: true or false)
-         */
         "onSwitched"?: (event: CustomEvent<boolean>) => void;
     }
     interface IntrinsicElements {
         "moco-button": MocoButton;
+        "moco-checkbox": MocoCheckbox;
         "moco-input-text": MocoInputText;
         "moco-loader": MocoLoader;
         "moco-select": MocoSelect;
@@ -161,6 +157,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "moco-button": LocalJSX.MocoButton & JSXBase.HTMLAttributes<HTMLMocoButtonElement>;
+            "moco-checkbox": LocalJSX.MocoCheckbox & JSXBase.HTMLAttributes<HTMLMocoCheckboxElement>;
             "moco-input-text": LocalJSX.MocoInputText & JSXBase.HTMLAttributes<HTMLMocoInputTextElement>;
             "moco-loader": LocalJSX.MocoLoader & JSXBase.HTMLAttributes<HTMLMocoLoaderElement>;
             "moco-select": LocalJSX.MocoSelect & JSXBase.HTMLAttributes<HTMLMocoSelectElement>;

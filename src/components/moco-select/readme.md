@@ -17,10 +17,10 @@
 
 ## Events
 
-| Event                  | Description | Type                   |
-| ---------------------- | ----------- | ---------------------- |
-| `opened`               |             | `CustomEvent<boolean>` |
-| `selectedValueChanged` |             | `CustomEvent<string>`  |
+| Event     | Description | Type                   |
+| --------- | ----------- | ---------------------- |
+| `changed` |             | `CustomEvent<string>`  |
+| `opened`  |             | `CustomEvent<boolean>` |
 
 
 ----------------------------------------------

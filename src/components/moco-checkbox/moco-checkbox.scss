@@ -1,0 +1,53 @@
+@use 'sass:math';
+@import '../../scss/defaults';
+@import '../../scss/variables';
+
+:host([dark]) {
+  .moco-checkbox-box {
+    border: 1px solid $color-border-dark;
+    background-color: $color-background-dark;
+
+    &:focus,
+    &:focus-within {
+      background-color: $color-background-dark-focused;
+      border: 1px solid $color-border-dark-focused;
+    }
+
+    & > svg {
+      fill: $color-svg-dark;
+    }
+  }
+}
+
+.moco-checkbox-box {
+  $box-size: math.div($default-control-height, 2);
+
+  min-width: $box-size;
+  min-height: $box-size;
+  width: $box-size;
+  height: $box-size;
+
+  border-radius: $default-border-radius;
+  border: 1px solid $color-border-light;
+  background-color: $color-background-light;
+
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:focus,
+  &:focus-within {
+    background-color: $color-background-light-focused;
+    border: 1px solid $color-border-light-focused;
+  }
+
+  & > svg {
+    fill: $color-svg-light;
+    width: $box-size * 0.8;
+    height: $box-size * 0.8;
+  }
+}

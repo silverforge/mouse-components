@@ -12,7 +12,7 @@ export class MocoSelectOption {
   @Prop({ reflect: true, mutable: true }) selected: boolean = false;
 
   @Event({
-    eventName: 'optionSelected',
+    eventName: 'selected',
     bubbles: true,
     composed: true,
   }) clicked: EventEmitter<string>;

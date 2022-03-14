@@ -13,14 +13,14 @@ export class MocoInputText {
   @Prop({ reflect: true, mutable: true }) value: string;
 
   @Event({
-    eventName: 'inputchange',
+    eventName: 'changed',
     composed: true,
     bubbles: false
-  }) inputchange: EventEmitter<string>;
+  }) inputchanged: EventEmitter<string>;
 
   onInputChange(e: any) {
     this.value = e.target.value;
-    this.inputchange.emit(e.target.value);
+    this.inputchanged.emit(e.target.value);
   }
 
   render() {

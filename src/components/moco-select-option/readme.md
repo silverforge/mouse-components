@@ -17,9 +17,9 @@
 
 ## Events
 
-| Event            | Description | Type                  |
-| ---------------- | ----------- | --------------------- |
-| `optionSelected` |             | `CustomEvent<string>` |
+| Event      | Description | Type                  |
+| ---------- | ----------- | --------------------- |
+| `selected` |             | `CustomEvent<string>` |
 
 
 ----------------------------------------------

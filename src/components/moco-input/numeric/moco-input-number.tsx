@@ -6,7 +6,7 @@ import { h, Component, Prop, EventEmitter, Event } from "@stencil/core";
   shadow: true
 })
 export class MocoInputNumber {
-  numericInput: HTMLInputElement;
+  numericInput!: HTMLInputElement;
 
   @Prop() placeholder: string;
   @Prop() dark: boolean;
@@ -48,7 +48,7 @@ export class MocoInputNumber {
           placeholder={this.placeholder}
           value={this.value}
           onInput={this.onInputChange.bind(this)} />
-        <div class="number-spinner-box">
+        <div class="input-end-box">
           <svg onClick={this._stepUp.bind(this)} tabindex={0} xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24" viewBox="0 0 24 24">
             <path d="M7,15L12,10L17,15H7Z" />
           </svg>

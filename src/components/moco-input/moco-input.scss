@@ -1,3 +1,4 @@
+@use 'sass:math';
 @import '../../scss/defaults';
 @import '../../scss/variables';
 @import '../../scss/shadows';
@@ -21,9 +22,15 @@
     }
   }
 
-  .number-spinner-box {
+  .input-end-box {
     background-color: $color-background-dark;
 
+    & svg {
+      fill: $color-svg-dark;
+    }
+  }
+
+  .carousel-icons {
     & svg {
       fill: $color-svg-dark;
     }
@@ -61,12 +68,24 @@
     }
   }
 
-  .number-spinner-box {
+  .input-end-box {
     background-color: $color-background-disabled;
 
     & svg {
       fill: $color-text-disabled;
     }
+  }
+
+  .carousel-icons {
+    & svg {
+      fill: $color-text-disabled;
+    }
+  }
+}
+
+:host([error]) {
+  .moco-input-box {
+    border: 1px solid $color-error;
   }
 }
 
@@ -135,14 +154,19 @@
     &::-webkit-inner-spin-button {
       display: none;
     }
+
+    &::-ms-reveal,
+    &::-ms-clear {
+      display: none;
+    }
   }
 }
 
-.number-spinner-box {
+.input-end-box {
   background-color: $color-background-light;
   display: flex;
   flex-direction: column;
-  width: 2rem;
+  width: 2.4rem;
   height: 100%;
   align-items: center;
   justify-content: center;
@@ -163,5 +187,37 @@
 
     cursor: pointer;
     outline: none;
+  }
+}
+
+.icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 2.4rem;
+  height: $default-control-height;
+}
+
+.carousel-icons {
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease-out;
+  height: calc(2 * $default-control-height);
+
+  & svg {
+    fill: $color-background-dark-focused;
+    width: $default-svg-size;
+    height: $default-svg-size;
+  }
+
+  &-up {
+    @extend .carousel-icons;
+    margin-top: $default-control-height;
+  }
+
+  &-down {
+    @extend .carousel-icons;
+    margin-top: calc(-1 * $default-control-height);
   }
 }

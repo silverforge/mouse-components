@@ -23,6 +23,13 @@ export namespace Components {
         "placeholder": string;
         "value": string;
     }
+    interface MocoInputPassword {
+        "dark": boolean;
+        "disabled": boolean;
+        "error": boolean;
+        "placeholder": string;
+        "value": string;
+    }
     interface MocoInputText {
         "dark": boolean;
         "disabled": boolean;
@@ -76,6 +83,12 @@ declare global {
         prototype: HTMLMocoInputNumberElement;
         new (): HTMLMocoInputNumberElement;
     };
+    interface HTMLMocoInputPasswordElement extends Components.MocoInputPassword, HTMLStencilElement {
+    }
+    var HTMLMocoInputPasswordElement: {
+        prototype: HTMLMocoInputPasswordElement;
+        new (): HTMLMocoInputPasswordElement;
+    };
     interface HTMLMocoInputTextElement extends Components.MocoInputText, HTMLStencilElement {
     }
     var HTMLMocoInputTextElement: {
@@ -116,6 +129,7 @@ declare global {
         "moco-button": HTMLMocoButtonElement;
         "moco-checkbox": HTMLMocoCheckboxElement;
         "moco-input-number": HTMLMocoInputNumberElement;
+        "moco-input-password": HTMLMocoInputPasswordElement;
         "moco-input-text": HTMLMocoInputTextElement;
         "moco-loader": HTMLMocoLoaderElement;
         "moco-radiobutton": HTMLMocoRadiobuttonElement;
@@ -138,6 +152,14 @@ declare namespace LocalJSX {
         "onChanged"?: (event: CustomEvent<boolean>) => void;
     }
     interface MocoInputNumber {
+        "dark"?: boolean;
+        "disabled"?: boolean;
+        "error"?: boolean;
+        "onChanged"?: (event: CustomEvent<string>) => void;
+        "placeholder"?: string;
+        "value"?: string;
+    }
+    interface MocoInputPassword {
         "dark"?: boolean;
         "disabled"?: boolean;
         "error"?: boolean;
@@ -188,6 +210,7 @@ declare namespace LocalJSX {
         "moco-button": MocoButton;
         "moco-checkbox": MocoCheckbox;
         "moco-input-number": MocoInputNumber;
+        "moco-input-password": MocoInputPassword;
         "moco-input-text": MocoInputText;
         "moco-loader": MocoLoader;
         "moco-radiobutton": MocoRadiobutton;
@@ -203,6 +226,7 @@ declare module "@stencil/core" {
             "moco-button": LocalJSX.MocoButton & JSXBase.HTMLAttributes<HTMLMocoButtonElement>;
             "moco-checkbox": LocalJSX.MocoCheckbox & JSXBase.HTMLAttributes<HTMLMocoCheckboxElement>;
             "moco-input-number": LocalJSX.MocoInputNumber & JSXBase.HTMLAttributes<HTMLMocoInputNumberElement>;
+            "moco-input-password": LocalJSX.MocoInputPassword & JSXBase.HTMLAttributes<HTMLMocoInputPasswordElement>;
             "moco-input-text": LocalJSX.MocoInputText & JSXBase.HTMLAttributes<HTMLMocoInputTextElement>;
             "moco-loader": LocalJSX.MocoLoader & JSXBase.HTMLAttributes<HTMLMocoLoaderElement>;
             "moco-radiobutton": LocalJSX.MocoRadiobutton & JSXBase.HTMLAttributes<HTMLMocoRadiobuttonElement>;

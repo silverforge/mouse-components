@@ -16,6 +16,12 @@ export namespace Components {
         "dark": boolean;
         "disabled": boolean;
     }
+    interface MocoInputDate {
+        "dark": boolean;
+        "disabled": boolean;
+        "error": boolean;
+        "value": string;
+    }
     interface MocoInputNumber {
         "dark": boolean;
         "disabled": boolean;
@@ -77,6 +83,12 @@ declare global {
         prototype: HTMLMocoCheckboxElement;
         new (): HTMLMocoCheckboxElement;
     };
+    interface HTMLMocoInputDateElement extends Components.MocoInputDate, HTMLStencilElement {
+    }
+    var HTMLMocoInputDateElement: {
+        prototype: HTMLMocoInputDateElement;
+        new (): HTMLMocoInputDateElement;
+    };
     interface HTMLMocoInputNumberElement extends Components.MocoInputNumber, HTMLStencilElement {
     }
     var HTMLMocoInputNumberElement: {
@@ -128,6 +140,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "moco-button": HTMLMocoButtonElement;
         "moco-checkbox": HTMLMocoCheckboxElement;
+        "moco-input-date": HTMLMocoInputDateElement;
         "moco-input-number": HTMLMocoInputNumberElement;
         "moco-input-password": HTMLMocoInputPasswordElement;
         "moco-input-text": HTMLMocoInputTextElement;
@@ -150,6 +163,13 @@ declare namespace LocalJSX {
         "dark"?: boolean;
         "disabled"?: boolean;
         "onChanged"?: (event: CustomEvent<boolean>) => void;
+    }
+    interface MocoInputDate {
+        "dark"?: boolean;
+        "disabled"?: boolean;
+        "error"?: boolean;
+        "onChanged"?: (event: CustomEvent<string>) => void;
+        "value"?: string;
     }
     interface MocoInputNumber {
         "dark"?: boolean;
@@ -209,6 +229,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "moco-button": MocoButton;
         "moco-checkbox": MocoCheckbox;
+        "moco-input-date": MocoInputDate;
         "moco-input-number": MocoInputNumber;
         "moco-input-password": MocoInputPassword;
         "moco-input-text": MocoInputText;
@@ -225,6 +246,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "moco-button": LocalJSX.MocoButton & JSXBase.HTMLAttributes<HTMLMocoButtonElement>;
             "moco-checkbox": LocalJSX.MocoCheckbox & JSXBase.HTMLAttributes<HTMLMocoCheckboxElement>;
+            "moco-input-date": LocalJSX.MocoInputDate & JSXBase.HTMLAttributes<HTMLMocoInputDateElement>;
             "moco-input-number": LocalJSX.MocoInputNumber & JSXBase.HTMLAttributes<HTMLMocoInputNumberElement>;
             "moco-input-password": LocalJSX.MocoInputPassword & JSXBase.HTMLAttributes<HTMLMocoInputPasswordElement>;
             "moco-input-text": LocalJSX.MocoInputText & JSXBase.HTMLAttributes<HTMLMocoInputTextElement>;

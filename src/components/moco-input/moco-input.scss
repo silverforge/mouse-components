@@ -4,6 +4,29 @@
 @import '../../scss/shadows';
 @import '../../scss/after-label';
 
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
+
 :host([dark]) {
   ::slotted(svg) {
     fill: $color-svg-dark;
@@ -130,8 +153,8 @@
     border: none;
 
     background-color: transparent;
-    appearance: textfield;
     -webkit-appearance: textfield;
+    appearance: textfield;
 
     padding: 1rem;
     width: 100%;
@@ -144,16 +167,6 @@
 
     &::placeholder {
       color: $color-text-placeholder;
-    }
-
-    &::-webkit-outer-spin-button,
-    &::-webkit-inner-spin-button {
-      display: none;
-    }
-
-    &::-ms-reveal,
-    &::-ms-clear {
-      display: none;
     }
   }
 }

@@ -10,6 +10,19 @@
     <script src="./assets/control-show.js" defer></script>
 
     <style>
+      details {
+        border: 1px solid gray;
+        border-radius: 5px;
+      }
+
+      summary {
+        background-color: #FAFAFA;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        user-select: none;
+      }
+
       details[open] summary ~ * {
         animation: sweep 0.5s ease-in-out;
       }
@@ -27,6 +40,8 @@
     </style>
   </head>
   <body style="display: flex; flex-direction: column; gap: 1rem; padding: 2rem">
+    <h1>mouse controls</h1>
+
     <details>
       <summary>input elements</summary>
 

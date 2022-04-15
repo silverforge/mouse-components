@@ -18,8 +18,10 @@ export namespace Components {
     }
     interface MocoInputDate {
         "dark": boolean;
+        "dateformat": string;
         "disabled": boolean;
         "error": boolean;
+        "placeholder": string;
         "value": string;
     }
     interface MocoInputNumber {
@@ -166,9 +168,11 @@ declare namespace LocalJSX {
     }
     interface MocoInputDate {
         "dark"?: boolean;
+        "dateformat"?: string;
         "disabled"?: boolean;
         "error"?: boolean;
         "onChanged"?: (event: CustomEvent<string>) => void;
+        "placeholder"?: string;
         "value"?: string;
     }
     interface MocoInputNumber {

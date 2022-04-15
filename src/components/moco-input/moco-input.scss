@@ -213,6 +213,7 @@ input::-ms-clear {
   flex-direction: column;
   transition: all 0.3s ease-out;
   height: calc(2 * $default-control-height);
+  cursor: pointer;
 
   & svg {
     fill: $color-background-dark-focused;

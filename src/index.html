@@ -16,11 +16,16 @@
       }
 
       summary {
-        background-color: #FAFAFA;
+        background-color: #fafafa;
         padding: 10px 20px;
         cursor: pointer;
         border-radius: 5px;
         user-select: none;
+      }
+
+      summary > * {
+        display: inline;
+        margin-left: 10px;
       }
 
       details[open] summary ~ * {
@@ -43,7 +48,7 @@
     <h1>mouse controls</h1>
 
     <details>
-      <summary>input elements</summary>
+      <summary><h4>input text</h4></summary>
 
       <div style="width: 40rem; display: flex; flex-direction: column; gap: 1rem; padding: 1rem 2rem">
         <moco-input-text placeholder="john.doe@somewhere.com">
@@ -81,7 +86,13 @@
         <moco-input-text placeholder="john.doe@somewhere.com" disabled error="true">
           <span slot="decal">email</span>
         </moco-input-text>
+      </div>
+    </details>
 
+    <details>
+      <summary><h4>input number</h4></summary>
+
+      <div style="width: 40rem; display: flex; flex-direction: column; gap: 1rem; padding: 1rem 2rem">
         <moco-input-number placeholder="numba">
           <svg slot="decal" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24">
             <path
@@ -91,7 +102,13 @@
         </moco-input-number>
         <moco-input-number placeholder="123" dark></moco-input-number>
         <moco-input-number placeholder="321" dark disabled></moco-input-number>
+      </div>
+    </details>
 
+    <details>
+      <summary><h4>input password</h4></summary>
+
+      <div style="width: 40rem; display: flex; flex-direction: column; gap: 1rem; padding: 1rem 2rem">
         <moco-input-password></moco-input-password>
         <moco-input-password dark></moco-input-password>
         <moco-input-password placeholder="password..." dark disabled></moco-input-password>
@@ -102,13 +119,19 @@
             />
           </svg>
         </moco-input-password>
+      </div>
+    </details>
 
+    <details>
+      <summary><h4>input date - unfinished</h4></summary>
+
+      <div style="width: 40rem; display: flex; flex-direction: column; gap: 1rem; padding: 1rem 2rem">
         <moco-input-date dateformat="dd/mm/yyyy" value="2022-03-15" placeholder="dd/mm/yyyy"></moco-input-date>
       </div>
     </details>
 
     <details>
-      <summary>button elements</summary>
+      <summary><h4>button</h4></summary>
 
       <div style="display: flex; gap: 1rem; padding: 1rem 2rem">
         <moco-button id="okay-button" dark value="okay">
@@ -139,7 +162,7 @@
     </details>
 
     <details>
-      <summary>switch elements</summary>
+      <summary><h4>switch</h4></summary>
 
       <div style="display: flex; gap: 1rem; padding: 1rem 2rem">
         <moco-switch id="dark-switch" dark></moco-switch>
@@ -149,7 +172,7 @@
     </details>
 
     <details>
-      <summary>select elements</summary>
+      <summary><h4>select</h4></summary>
 
       <div style="width: 20rem; display: flex; flex-direction: column; gap: 1rem; padding: 1rem 2rem">
         <moco-select id="light-select">
@@ -193,7 +216,7 @@
     </details>
 
     <details>
-      <summary>checkbox elements</summary>
+      <summary><h4>checkbox</h4></summary>
 
       <div style="display: flex; align-items: center; gap: 1rem; padding: 1rem 2rem">
         <moco-checkbox id="my-moco-checkbox"></moco-checkbox>
@@ -203,7 +226,7 @@
     </details>
 
     <details>
-      <summary>radiobutton elements</summary>
+      <summary><h4>radiobutton</h4></summary>
 
       <div style="display: flex; align-items: center; gap: 1rem; padding: 1rem 2rem">
         <moco-radiobutton id="my-moco-radiobutton"></moco-radiobutton>
@@ -213,7 +236,7 @@
     </details>
 
     <details>
-      <summary>loader elements</summary>
+      <summary><h4>loader</h4></summary>
 
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: center; margin: 1rem">
         <moco-loader mode="tiny" dark transparent></moco-loader>

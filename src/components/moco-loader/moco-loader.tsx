@@ -17,32 +17,18 @@ export class MocoLoader {
   @Prop() transparent: boolean;
 
   render() {
-    let containerClass = 'container';
-    let containerInnerClass = 'container-inner';
-    let containerInnerSmallClass = 'container-inner-small';
-    let dotSmallClass = 'dot-small';
-
-    if (this.dark) {
-      containerClass = 'container-dark';
-      containerInnerClass = 'container-inner-dark';
-      containerInnerSmallClass = 'container-inner-small-dark';
-      dotSmallClass = 'dot-small-dark';
-    }
-
-    if (this.transparent) {
-      containerClass = 'container-transparent';
-    }
+    const containerClass = (this.transparent) ? 'container-transparent' : 'container';
 
     return (
       <div class={containerClass}>
-        <div class={containerInnerClass}>
+        <div class={'container-inner'}>
           <div /><div /><div /><div />
           <div /><div /><div /><div />
           <div /><div /><div /><div />
         </div>
 
-        <div class={containerInnerSmallClass}>
-          <div class={dotSmallClass}></div>
+        <div class={'container-inner-small'}>
+          <div class={'dot-small'}></div>
         </div>
       </div>
     );

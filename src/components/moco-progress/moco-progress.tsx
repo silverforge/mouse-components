@@ -2,7 +2,14 @@ import { h, Component, Element, Prop, Watch } from "@stencil/core";
 
 @Component({
   tag: "moco-progress",
-  styleUrl: "moco-progress.scss",
+  styleUrls: {
+    default: './styles/moco-progress-large.scss',
+    tiny: './styles/moco-progress-tiny.scss',
+    small: './styles/moco-progress-small.scss',
+    medium: './styles/moco-progress-medium.scss',
+    large: './styles/moco-progress-large.scss',
+    huge: './styles/moco-progress-huge.scss',
+  },
   shadow: true
 })
 export class MocoProgress {
@@ -14,22 +21,31 @@ export class MocoProgress {
   @Prop() text: string;
   @Prop() dark: boolean;
 
-  @Watch("percentage")
-  watchValueHandler(newValue: number) {
-    if (newValue > 100) {
+  setPercentage(value: number) {
+    if (value > 100) {
       this.leftElement.style.transform = "rotateZ(180deg)";
       this.rightElement.style.transform = "rotateZ(180deg)";
-    } else if (newValue > 50) {
+    } else if (value > 50) {
       this.leftElement.style.transform = "rotateZ(180deg)";
 
-      const vv = newValue - 50;
+      const vv = value - 50;
       const newDegree = vv * (180 / 50);
       this.rightElement.style.opacity = "1";
       this.rightElement.style.transform = `rotateZ(${newDegree}deg)`;
     } else {
-      const newDegree = newValue * (180 / 50);
+      const newDegree = value * (180 / 50);
       this.leftElement.style.transform = `rotateZ(${newDegree}deg)`;
     }
+
+  }
+
+  @Watch("percentage")
+  watchValueHandler(newValue: number) {
+    this.setPercentage(newValue);
+  }
+
+  componentDidLoad() {
+    this.setPercentage(this.percentage);
   }
 
   render() {

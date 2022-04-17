@@ -1,7 +1,6 @@
 @use 'sass:math';
-@import "../../scss/variables";
+@import '../../../scss/variables';
 
-$circle-radius: 10em;
 $circle-center-shield-ratio: 0.6;
 $dot-size: $circle-radius * 0.1;
 $radius-big: $circle-radius * 0.4;
@@ -46,6 +45,14 @@ $childrenAmount: 12;
   .dot-base {
     background-color: $color-background-dark-focused;
   }
+
+  ::slotted(svg) {
+    fill: $color-background-light;
+  }  
+}
+
+::slotted(svg) {
+  fill: $color-background-dark;
 }
 
 .circle {

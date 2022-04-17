@@ -254,12 +254,34 @@
       <summary><h4>circular progress</h4></summary>
 
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: center; margin: 1rem">
-        <moco-progress id="moco-progress">
+        <moco-progress mode="tiny"><span style="font-size: .6rem;">0%</span></moco-progress>
+        <moco-progress mode="tiny" dark><span style="font-size: .6rem; color: white;">0%</span></moco-progress>
+
+        <moco-progress mode="small" percentage=23><span>23%</span></moco-progress>
+        <moco-progress mode="small" dark percentage="17"><span style="color: white;">17%</span></moco-progress>
+
+        <moco-progress id="moco-progress" mode="medium">
           <span id="moco-progress-text"></span>
         </moco-progress>
 
-        <moco-progress id="moco-progress-2" dark>
+        <moco-progress id="moco-progress-2" dark mode="medium">
           <span id="moco-progress-text-2" style="color: white;">loading...</span>
+        </moco-progress>
+
+        <moco-progress mode="large" percentage=79><span>almost full...</span></moco-progress>
+        <moco-progress mode="large" dark percentage=63><span style="color: white;">a bit more than half</span></moco-progress>
+
+        <moco-progress mode="huge" percentage=42>
+          <svg style="width: 8rem; height: 8rem;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24">
+            <path
+              d="M11.25,6A3.25,3.25 0 0,1 14.5,2.75A3.25,3.25 0 0,1 17.75,6C17.75,6.42 18.08,6.75 18.5,6.75C18.92,6.75 19.25,6.42 19.25,6V5.25H20.75V6A2.25,2.25 0 0,1 18.5,8.25A2.25,2.25 0 0,1 16.25,6A1.75,1.75 0 0,0 14.5,4.25A1.75,1.75 0 0,0 12.75,6H14V7.29C16.89,8.15 19,10.83 19,14A7,7 0 0,1 12,21A7,7 0 0,1 5,14C5,10.83 7.11,8.15 10,7.29V6H11.25M22,6H24V7H22V6M19,4V2H20V4H19M20.91,4.38L22.33,2.96L23.04,3.67L21.62,5.09L20.91,4.38Z"
+            />
+          </svg>
+        </moco-progress>
+        <moco-progress mode="huge" dark percentage=81>
+          <svg style="width: 8rem; height: 8rem;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M10 2H4C2.9 2 2 2.9 2 4S2.9 6 4 6H8L10 2M18 2C20.2 2 22 3.8 22 6V12L18 14C18 9.6 14.4 6 10 6L12 2H18M18 20V16L22 14V20C22 21.1 21.1 22 20 22S18 21.1 18 20Z" />
+          </svg>
         </moco-progress>
       </div>
     </details>

@@ -1,5 +1,6 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
+import { reactOutputTarget } from '@stencil/react-output-target';
 
 export const config: Config = {
   namespace: 'mouse-components',
@@ -22,5 +23,10 @@ export const config: Config = {
       type: 'www',
       serviceWorker: null, // disable service workers
     },
+    reactOutputTarget({
+			proxiesFile: './react/src/index.ts',
+			componentCorePackage: 'mouse-components',
+      includeDefineCustomElements: true,
+    }),
   ],
 };

@@ -1,18 +1,68 @@
+@use 'sass:math';
+@import "../../scss/variables";
+
+$circle-radius: 10rem;
+$circle-center-shield-ratio: 0.6;
+$dot-size: $circle-radius * 0.1;
+$radius-big: $circle-radius * 0.4;
+$childrenAmount: 12;
+
+@mixin childrenToCircle($childCount) {
+  $degree: math.div(360, $childCount);
+
+  & > * {
+    @for $i from 1 to $childCount + 1 {
+      &:nth-child(#{$i}) {
+        @extend .dot-base;
+        transform: rotate(($i * $degree) + 0deg) translateY($radius-big);
+      }
+    }
+  }
+}
+
+:host([dark]) {
+  .circle {
+    background-color: $color-background-light;
+    border: 1px solid $color-background-light;
+  }
+
+  .center-shield {
+    background-color: $color-background-dark;
+    border: 1px solid $color-background-light;
+  }
+
+  .left {
+    background-color: $color-background-dark-focused;
+  }
+
+  .right {
+    background-color: $color-background-dark-focused;
+  }
+
+  .left-panel {
+    background-color: $color-background-light;
+  }
+
+  .dot-base {
+    background-color: $color-background-dark-focused;
+  }
+}
 
 .circle {
-  background-color: gray;
-  width: 10rem;
-  height: 10rem;
+  background-color: $color-background-dark;
+  width: $circle-radius;
+  height: $circle-radius;
   position: relative;
 
-  border-radius: 100rem;
+  border-radius: 100%;
+  border: 1px solid $color-background-dark;
   overflow: hidden;
 }
 
 .center-shield {
-  background-color: gray;
-  width: 9rem;
-  height: 9rem;
+  background-color: $color-background-light;
+  width: calc($circle-radius * $circle-center-shield-ratio);
+  height: calc($circle-radius * $circle-center-shield-ratio);
   position: absolute;
   z-index: 30;
 
@@ -20,44 +70,81 @@
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
 
-  border-radius: 100rem;
+  border-radius: 100%;
+  border: 1px solid $color-background-dark;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .left {
-  background-color: red;
-  width: 5rem;
-  height: 10rem;
+  background-color: $color-background-light-focused;
+  width: math.div($circle-radius, 2);
+  height: $circle-radius;
 
   position: absolute;
   top: 0;
   left: 0;
-  transform-origin: 5rem 5rem;
+  transform-origin: math.div($circle-radius, 2) math.div($circle-radius, 2);
+  transition: transform .3s;
 
-  transform: rotateZ(125deg);
+  transform: rotateZ(0deg);
 }
 
 .right {
-  width: 5rem;
-  height: 10rem;
-  background-color: red;
+  background-color: $color-background-light-focused;
+  width: math.div($circle-radius, 2);
+  height: $circle-radius;
   z-index: 20;
 
   position: absolute;
   top: 0;
   right: 0;
-  transform-origin: 0 5rem;
+  transform-origin: 0 math.div($circle-radius, 2);
+  transition: transform .3s;
 
   transform: rotateZ(0deg);
   opacity: 0;
 }
 
 .left-panel {
-  background-color: gray;
-  width: 5rem;
-  height: 10rem;
+  background-color: $color-background-dark;
+  width: (math.div($circle-radius, 2) + 0rem);
+  height: $circle-radius;
   z-index: 10;
 
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.dot-container {
+  background-color: transparent;
+  width: $circle-radius;
+  height: $circle-radius;
+  position: absolute;
+  z-index: 40;
+
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+
+  border-radius: 100%;
+
+  @include childrenToCircle($childrenAmount);
+}
+
+.dot-base {
+  min-width: $dot-size;
+  min-height: $dot-size;
+  width: $dot-size;
+  height: $dot-size;
+  background-color: $color-background-light-focused;
+  border-radius: 50%;
+
+  position: absolute;
+  top: calc(math.div($circle-radius, 2) - math.div($dot-size, 2));
+  left: calc(math.div($circle-radius, 2) - math.div($dot-size, 2));
 }

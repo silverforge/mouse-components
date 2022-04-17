@@ -58,10 +58,15 @@ myRadioButton.addEventListener('changed', (e) => {
 
 
 const mocoProgress = document.getElementById("moco-progress");
+const mocoProgressText = document.getElementById("moco-progress-text");
+const mocoProgress2 = document.getElementById("moco-progress-2");
+const mocoProgressText2 = document.getElementById("moco-progress-text-2");
 let v = 0;
 const myInterval = setInterval(() => {
   v = v + 1;
-  console.log(v);
-  mocoProgress.setAttribute("value", v);
+  mocoProgress.setAttribute("percentage", v);
+  mocoProgressText.innerText = v + "%";
+  mocoProgress2.setAttribute("percentage", v);
+  
   if (v >= 100) clearInterval(myInterval);
 }, 250);

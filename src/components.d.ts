@@ -50,7 +50,9 @@ export namespace Components {
         "transparent": boolean;
     }
     interface MocoProgress {
-        "value": number;
+        "dark": boolean;
+        "percentage": number;
+        "text": string;
     }
     interface MocoRadiobutton {
         "checked": boolean;
@@ -214,7 +216,9 @@ declare namespace LocalJSX {
         "transparent"?: boolean;
     }
     interface MocoProgress {
-        "value"?: number;
+        "dark"?: boolean;
+        "percentage"?: number;
+        "text"?: string;
     }
     interface MocoRadiobutton {
         "checked"?: boolean;

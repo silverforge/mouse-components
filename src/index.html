@@ -254,7 +254,13 @@
       <summary><h4>circular progress</h4></summary>
 
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: center; margin: 1rem">
-        <moco-progress id="moco-progress"></moco-progress>
+        <moco-progress id="moco-progress">
+          <span id="moco-progress-text"></span>
+        </moco-progress>
+
+        <moco-progress id="moco-progress-2" dark>
+          <span id="moco-progress-text-2" style="color: white;">loading...</span>
+        </moco-progress>
       </div>
     </details>
 

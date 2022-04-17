@@ -250,26 +250,26 @@
       </div>
     </details>
 
-    <details open>
+    <details>
       <summary><h4>circular progress</h4></summary>
 
       <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: center; margin: 1rem">
         <moco-progress mode="tiny"><span style="font-size: .6rem;">0%</span></moco-progress>
-        <moco-progress mode="tiny" dark><span style="font-size: .6rem; color: white;">0%</span></moco-progress>
+        <moco-progress mode="tiny" dark><span style="font-size: .6rem;">0%</span></moco-progress>
 
         <moco-progress mode="small" percentage=23><span>23%</span></moco-progress>
-        <moco-progress mode="small" dark percentage="17"><span style="color: white;">17%</span></moco-progress>
+        <moco-progress mode="small" dark percentage="17"><span>17%</span></moco-progress>
 
         <moco-progress id="moco-progress" mode="medium">
           <span id="moco-progress-text"></span>
         </moco-progress>
 
         <moco-progress id="moco-progress-2" dark mode="medium">
-          <span id="moco-progress-text-2" style="color: white;">loading...</span>
+          <span id="moco-progress-text-2">loading...</span>
         </moco-progress>
 
         <moco-progress mode="large" percentage=79><span>almost full...</span></moco-progress>
-        <moco-progress mode="large" dark percentage=63><span style="color: white;">a bit more than half</span></moco-progress>
+        <moco-progress mode="large" dark percentage=63><span>a bit more than half</span></moco-progress>
 
         <moco-progress mode="huge" percentage=42>
           <svg style="width: 8rem; height: 8rem;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24">
@@ -285,6 +285,5 @@
         </moco-progress>
       </div>
     </details>
-
   </body>
 </html>

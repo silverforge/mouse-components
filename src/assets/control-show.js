@@ -67,6 +67,9 @@ const myInterval = setInterval(() => {
   mocoProgress.setAttribute("percentage", v);
   mocoProgressText.innerText = v + "%";
   mocoProgress2.setAttribute("percentage", v);
-  
-  if (v >= 100) clearInterval(myInterval);
+
+  if (v >= 100) {
+    mocoProgressText2.innerText = "done";
+    clearInterval(myInterval);
+  }
 }, 250);

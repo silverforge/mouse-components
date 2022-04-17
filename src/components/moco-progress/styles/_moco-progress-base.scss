@@ -49,10 +49,18 @@ $childrenAmount: 12;
   ::slotted(svg) {
     fill: $color-background-light;
   }  
+
+  ::slotted(*) {
+    color: $color-background-light;
+  }
 }
 
 ::slotted(svg) {
   fill: $color-background-dark;
+}
+
+::slotted(*) {
+  color: $color-background-dark;
 }
 
 .circle {

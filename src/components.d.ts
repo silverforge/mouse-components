@@ -49,6 +49,9 @@ export namespace Components {
         "dark": boolean;
         "transparent": boolean;
     }
+    interface MocoProgress {
+        "value": number;
+    }
     interface MocoRadiobutton {
         "checked": boolean;
         "dark": boolean;
@@ -115,6 +118,12 @@ declare global {
         prototype: HTMLMocoLoaderElement;
         new (): HTMLMocoLoaderElement;
     };
+    interface HTMLMocoProgressElement extends Components.MocoProgress, HTMLStencilElement {
+    }
+    var HTMLMocoProgressElement: {
+        prototype: HTMLMocoProgressElement;
+        new (): HTMLMocoProgressElement;
+    };
     interface HTMLMocoRadiobuttonElement extends Components.MocoRadiobutton, HTMLStencilElement {
     }
     var HTMLMocoRadiobuttonElement: {
@@ -147,6 +156,7 @@ declare global {
         "moco-input-password": HTMLMocoInputPasswordElement;
         "moco-input-text": HTMLMocoInputTextElement;
         "moco-loader": HTMLMocoLoaderElement;
+        "moco-progress": HTMLMocoProgressElement;
         "moco-radiobutton": HTMLMocoRadiobuttonElement;
         "moco-select": HTMLMocoSelectElement;
         "moco-select-option": HTMLMocoSelectOptionElement;
@@ -203,6 +213,9 @@ declare namespace LocalJSX {
         "dark"?: boolean;
         "transparent"?: boolean;
     }
+    interface MocoProgress {
+        "value"?: number;
+    }
     interface MocoRadiobutton {
         "checked"?: boolean;
         "dark"?: boolean;
@@ -238,6 +251,7 @@ declare namespace LocalJSX {
         "moco-input-password": MocoInputPassword;
         "moco-input-text": MocoInputText;
         "moco-loader": MocoLoader;
+        "moco-progress": MocoProgress;
         "moco-radiobutton": MocoRadiobutton;
         "moco-select": MocoSelect;
         "moco-select-option": MocoSelectOption;
@@ -255,6 +269,7 @@ declare module "@stencil/core" {
             "moco-input-password": LocalJSX.MocoInputPassword & JSXBase.HTMLAttributes<HTMLMocoInputPasswordElement>;
             "moco-input-text": LocalJSX.MocoInputText & JSXBase.HTMLAttributes<HTMLMocoInputTextElement>;
             "moco-loader": LocalJSX.MocoLoader & JSXBase.HTMLAttributes<HTMLMocoLoaderElement>;
+            "moco-progress": LocalJSX.MocoProgress & JSXBase.HTMLAttributes<HTMLMocoProgressElement>;
             "moco-radiobutton": LocalJSX.MocoRadiobutton & JSXBase.HTMLAttributes<HTMLMocoRadiobuttonElement>;
             "moco-select": LocalJSX.MocoSelect & JSXBase.HTMLAttributes<HTMLMocoSelectElement>;
             "moco-select-option": LocalJSX.MocoSelectOption & JSXBase.HTMLAttributes<HTMLMocoSelectOptionElement>;

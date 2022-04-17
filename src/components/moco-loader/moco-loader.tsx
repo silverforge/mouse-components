@@ -21,14 +21,14 @@ export class MocoLoader {
 
     return (
       <div class={containerClass}>
-        <div class={'container-inner'}>
+        <div class='container-inner'>
           <div /><div /><div /><div />
           <div /><div /><div /><div />
           <div /><div /><div /><div />
         </div>
 
-        <div class={'container-inner-small'}>
-          <div class={'dot-small'}></div>
+        <div class='container-progress'>
+          <div class='progress-trail'></div>
         </div>
       </div>
     );

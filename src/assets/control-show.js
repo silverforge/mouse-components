@@ -55,3 +55,13 @@ const myRadioButton = document.getElementById('my-moco-radiobutton');
 myRadioButton.addEventListener('changed', (e) => {
   console.log(e.detail);
 });
+
+
+const mocoProgress = document.getElementById("moco-progress");
+let v = 0;
+const myInterval = setInterval(() => {
+  v = v + 1;
+  console.log(v);
+  mocoProgress.setAttribute("value", v);
+  if (v >= 100) clearInterval(myInterval);
+}, 250);

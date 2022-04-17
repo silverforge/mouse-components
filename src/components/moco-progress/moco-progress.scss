@@ -1,7 +1,7 @@
 @use 'sass:math';
 @import "../../scss/variables";
 
-$circle-radius: 10rem;
+$circle-radius: 10em;
 $circle-center-shield-ratio: 0.6;
 $dot-size: $circle-radius * 0.1;
 $radius-big: $circle-radius * 0.4;
@@ -111,7 +111,7 @@ $childrenAmount: 12;
 
 .left-panel {
   background-color: $color-background-dark;
-  width: (math.div($circle-radius, 2) + 0rem);
+  width: math.div($circle-radius, 2);
   height: $circle-radius;
   z-index: 10;
 

@@ -7,9 +7,11 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type     | Default     |
-| -------- | --------- | ----------- | -------- | ----------- |
-| `value`  | `value`   |             | `number` | `undefined` |
+| Property     | Attribute    | Description | Type      | Default     |
+| ------------ | ------------ | ----------- | --------- | ----------- |
+| `dark`       | `dark`       |             | `boolean` | `undefined` |
+| `percentage` | `percentage` |             | `number`  | `undefined` |
+| `text`       | `text`       |             | `string`  | `undefined` |
 
 
 ----------------------------------------------
